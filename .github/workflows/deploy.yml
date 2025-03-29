@@ -1,0 +1,29 @@
+name: Deploy to the GCP Compute Engine
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+    deployment:
+        runs-on: self-hosted
+
+        steps:
+          # - name: Clean folders
+            # run: sudo rm -r /home/banula/actions-runner/_work/renewaa_next/renewaa_next/.next
+
+          - name: Checkout
+            uses: actions/checkout@v2
+
+          - name: Deploy
+            run: docker compose down && docker compose up -d --build
+
+          - name: Clean Unused Docker Resources
+            run: docker system prune --volumes -f
+
+          - name: Clean all unused docker volumes
+            run: docker volume prune -a -f

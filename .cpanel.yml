@@ -1,0 +1,5 @@
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home/enm2lpeddb9w/public_html/
+    - /bin/cp * $DEPLOYPATH
+    - /bin/cp -R assets/ $DEPLOYPATH
