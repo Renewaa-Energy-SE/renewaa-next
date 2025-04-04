@@ -23,9 +23,6 @@ const nextConfig = {
     });
     return config;
   },
-  experimental: {
-    fontLoaders: [],
-  },
 };
 
 export default nextConfig;
