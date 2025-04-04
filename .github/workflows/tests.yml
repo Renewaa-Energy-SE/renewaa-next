@@ -1,0 +1,58 @@
+name: Run Tests and Vulnerability Scan
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        package-manager: [npm, yarn]
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16'
+
+      - name: Install dependencies
+        run: |
+          if [ "${{ matrix.package-manager }}" == "npm" ]; then
+            npm install
+          else
+            yarn install
+          fi
+
+      - name: Run tests
+        run: |
+          if [ "${{ matrix.package-manager }}" == "npm" ]; then
+            npm test
+          else
+            yarn test
+          fi
+
+  vulnerability-scan:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run npm audit
+        run: npm audit --audit-level=high
