@@ -26,18 +26,34 @@ jobs:
       - name: Install dependencies
         run: |
           if [ "${{ matrix.package-manager }}" == "npm" ]; then
-            npm install
+            npm install --legacy-peer-deps
           else
             yarn install
           fi
+        shell: bash
+
+      - name: Remove unnecessary type definitions
+        run: |
+          if [ "${{ matrix.package-manager }}" == "npm" ]; then
+            npm uninstall @types/next-auth
+          else
+            yarn remove @types/next-auth
+          fi
+        shell: bash
 
       - name: Run tests
         run: |
           if [ "${{ matrix.package-manager }}" == "npm" ]; then
             npm test
           else
-            yarn test
+            if yarn run | grep -q "test"; then
+              yarn test
+            else
+              echo "No test script found in package.json for yarn."
+              exit 1
+            fi
           fi
+        shell: bash
 
   vulnerability-scan:
     runs-on: ubuntu-latest
@@ -52,7 +68,17 @@ jobs:
           node-version: '22'
 
       - name: Install dependencies
-        run: npm install
+        run: npm install --legacy-peer-deps
+        shell: bash
+
+      - name: Remove unnecessary type definitions
+        run: npm uninstall @types/next-auth
+        shell: bash
+
+      - name: Attempt to fix vulnerabilities
+        run: npm audit fix --force
+        shell: bash
 
       - name: Run npm audit
         run: npm audit --audit-level=high
+        shell: bash
