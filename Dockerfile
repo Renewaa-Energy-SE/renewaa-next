@@ -1,5 +1,5 @@
-# Use the Node.js 18 Alpine image as the base image
-FROM node:18-alpine
+# Use the Node.js 22 Alpine image as the base image
+FROM node:22-alpine
 
 # Set the working directory
 WORKDIR /renewaa
