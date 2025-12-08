@@ -68,21 +68,33 @@ const Loader = () => {
                   margin: "0",
                 }}
               ></div>
-              <img
-                src="/assets/images/rwenaa-logo.png"
-                alt="Renewaa"
+              <div
+                className="logo-circle"
                 style={{
                   position: "absolute",
                   top: "50%",
                   left: "50%",
                   transform: "translate(-50%, -50%)",
-                  width: "auto",
-                  height: "auto",
-                  maxWidth: "70%",
-                  maxHeight: "70%",
-                  objectFit: "contain",
+                  width: "120px",
+                  height: "120px",
+                  backgroundColor: "#ffffff",
+                  borderRadius: "50%",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  overflow: "hidden",
                 }}
-              />
+              >
+                <img
+                  src="/assets/images/rwenaa-logo.png"
+                  alt="Renewaa"
+                  style={{
+                    width: "80%",
+                    height: "auto",
+                    objectFit: "contain",
+                  }}
+                />
+              </div>
             </div>
 
             <div className="txt-loading">
