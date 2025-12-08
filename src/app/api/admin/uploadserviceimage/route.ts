@@ -1,8 +1,7 @@
-import { NextApiRequest, NextApiResponse } from "next";
 import fs from "fs";
 import path from "path";
 
-export async function POST(req: Request, res: Response) {
+export async function POST(req: Request) {
   try {
     const body = await req.json();
     // console.log(body);

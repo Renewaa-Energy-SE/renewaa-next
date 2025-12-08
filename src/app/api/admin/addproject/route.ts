@@ -1,7 +1,6 @@
-import type { NextApiRequest, NextApiResponse } from "next";
 import prisma from "../../../../../prisma";
 
-export async function POST(req: Request, res: NextApiResponse) {
+export async function POST(req: Request) {
   const projectData = await req.json();
 
   // console.log("projectData: ", projectData);
