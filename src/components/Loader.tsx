@@ -48,14 +48,42 @@ const Loader = () => {
         </div>
         <div id="handle-preloader" className="handle-preloader">
           <div className="animation-preloader">
-            {/* <div className="spinner-container">
-              <img
+            <div
+              className="spinner-logo-container"
+              style={{
+                position: "relative",
+                width: "150px",
+                height: "150px",
+                margin: "0 auto 45px auto",
+              }}
+            >
+              <div
                 className="spinner"
+                style={{
+                  position: "absolute",
+                  top: 0,
+                  left: 0,
+                  width: "100%",
+                  height: "100%",
+                  margin: "0",
+                }}
+              ></div>
+              <img
                 src="/assets/images/rwenaa-logo.png"
-                alt="Loading..."
+                alt="Renewaa"
+                style={{
+                  position: "absolute",
+                  top: "50%",
+                  left: "50%",
+                  transform: "translate(-50%, -50%)",
+                  width: "auto",
+                  height: "auto",
+                  maxWidth: "70%",
+                  maxHeight: "70%",
+                  objectFit: "contain",
+                }}
               />
-            </div> */}
-            <div className="spinner"></div>
+            </div>
 
             <div className="txt-loading">
               <span data-text-preloader="r" className="letters-loading">
