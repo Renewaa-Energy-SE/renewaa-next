@@ -38,7 +38,8 @@ import { Project, Content, Url } from "@/components/Types";
 //   }));
 // }
 
-const ProjectPage = async ({ params }: { params: { id: string } }) => {
+const ProjectPage = async ({ params }: { params: Promise<{ id: string }> }) => {
+  const { id } = await params;
   const response = await fetch(
     `${process.env.NEXT_PUBLIC_HOSTNAME}/api/project`,
     {
@@ -46,7 +47,7 @@ const ProjectPage = async ({ params }: { params: { id: string } }) => {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ id: params.id }),
+      body: JSON.stringify({ id }),
     }
   );
   // const response = await fetch(

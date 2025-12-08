@@ -1,6 +1,6 @@
 import nodemailer from "nodemailer";
 
-export async function POST(req: Request, res: Response) {
+export async function POST(req: Request) {
   const details = await req.json();
   try {
     if (!details) {

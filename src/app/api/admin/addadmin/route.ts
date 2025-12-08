@@ -1,12 +1,11 @@
-import type { NextApiRequest, NextApiResponse } from "next";
 import prisma from "../../../../../prisma";
 import crypto from "crypto";
-import { Role } from "@/components/Types";
-import { toast } from "react-toastify";
+// import { Role } from "@/components/Types";
+// import { toast } from "react-toastify";
 
 const SECRET_KEY = process.env.SECRET_KEY || "1a2b3c4d5e6f7g8h9i";
 
-export async function POST(req: Request, res: NextApiResponse) {
+export async function POST(req: Request) {
   const adminData = await req.json();
 
   // console.log("adminData: ", adminData);
@@ -46,10 +45,10 @@ export async function POST(req: Request, res: NextApiResponse) {
     );
 
     if (response.ok) {
-      toast.info("Email sent successfully");
+      // toast.info("Email sent successfully");
       console.log("Email sent successfully");
     } else {
-      toast.error("Error sending email");
+      // toast.error("Error sending email");
       console.error("Error sending email");
     }
 
@@ -62,14 +61,14 @@ export async function POST(req: Request, res: NextApiResponse) {
         password: hashedPassword,
       },
     });
-    toast.info("Admin created successfully");
+    // toast.info("Admin created successfully");
     return new Response(
       JSON.stringify({ status: "Admin created successfully", admin }),
       { status: 200 }
     );
   } catch (error) {
     console.error(error);
-    toast.error("An error occurred while creating the admin");
+    // toast.error("An error occurred while creating the admin");
     return new Response(
       JSON.stringify({
         status: "An error occurred while creating the admin",
