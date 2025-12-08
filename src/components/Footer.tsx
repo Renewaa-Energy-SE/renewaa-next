@@ -120,7 +120,7 @@ const Footer = () => {
             >
               <span id="siteseal"></span>
               <p style={{ marginLeft: 10 }}>
-                Copyright © 2024 ORAND | All Rights Reserved.
+                Copyright © 2025 Renewaa Pvt LTD | All Rights Reserved.
               </p>
             </div>
           </div>
