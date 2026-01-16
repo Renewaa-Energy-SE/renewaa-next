@@ -56,14 +56,16 @@ const Header = () => {
                     </Link>
                   </div>
                   {/*Mobile Navigation Toggler*/}
-                  <div
+                  <button
                     className="mobile-nav-toggler m-0 p-0"
                     onClick={toggleMenu}
+                    type="button"
+                    aria-label="Toggle navigation menu"
                   >
                     <i className="icon-bar" />
                     <i className="icon-bar" />
                     <i className="icon-bar" />
-                  </div>
+                  </button>
 
                   <nav
                     className="hidden items-center lg:flex w-2/3"
@@ -158,14 +160,16 @@ const Header = () => {
                     </Link>
                   </div>
                   {/*Mobile Navigation Toggler*/}
-                  <div
+                  <button
                     className="mobile-nav-toggler m-0 p-0"
                     onClick={toggleMenu}
+                    type="button"
+                    aria-label="Toggle navigation menu"
                   >
                     <i className="icon-bar" />
                     <i className="icon-bar" />
                     <i className="icon-bar" />
-                  </div>
+                  </button>
 
                   <nav
                     className="hidden items-center lg:flex w-2/3"
