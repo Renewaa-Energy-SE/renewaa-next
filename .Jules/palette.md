@@ -1,3 +1,3 @@
-## 2024-05-22 - Replacing div interactables with buttons
-**Learning:** Legacy code often uses `div`s with `onClick` for buttons. Replacing them with `<button type="button">` is usually safe if CSS uses class selectors, immediately providing keyboard accessibility and semantic meaning.
-**Action:** Always check CSS selectors before tag replacement. If class-based, swap fearlessly.
+## 2025-05-23 - Inconsistent Error Handling & Feedback Patterns
+**Learning:** The application uses different patterns for form submission feedback. The contact form uses `react-toastify` for success/error messages, while the login form (using Formik) was silently swallowing errors and had no visual feedback mechanism. This inconsistency can lead to developer confusion and a disjointed user experience.
+**Action:** When implementing new forms, standardise on a feedback mechanism. For critical auth flows, inline errors (as added to Login) are often better than toasts as they persist and are contextually placed. For transient actions like "Contact Us", toasts are acceptable but should always be accompanied by a loading state on the button.
