@@ -4,13 +4,21 @@ import Link from "next/link";
 import MobileMenu from "@/app/home/components/MobileMenu";
 
 const Header = () => {
-  const [scrollPosition, setScrollPosition] = useState(0);
+  const [isSticky, setIsSticky] = useState(false);
   const headerRef = useRef<HTMLDivElement | null>(null);
   const horizontalNavigation = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
+    let ticking = false;
+
     const handleScroll = () => {
-      setScrollPosition(window.pageYOffset);
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          setIsSticky(window.pageYOffset >= 110);
+          ticking = false;
+        });
+        ticking = true;
+      }
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -28,7 +36,7 @@ const Header = () => {
 
   useEffect(() => {
     if (headerRef.current) {
-      if (scrollPosition >= 110) {
+      if (isSticky) {
         headerRef.current.classList.add("fixed-header");
         horizontalNavigation.current
           ? headerRef.current.classList.add("block")
@@ -37,7 +45,7 @@ const Header = () => {
         headerRef.current.classList.remove("fixed-header");
       }
     }
-  }, [scrollPosition]);
+  }, [isSticky]);
 
   return (
     <>
