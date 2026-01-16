@@ -1,5 +1,5 @@
 "use client";
-import { useState, useEffect, FC } from "react";
+import { useState, FC } from "react";
 import Sidebar from "../components/Sidebar";
 
 type TableData = {
@@ -14,13 +14,6 @@ const Statistics: FC = () => {
     "Professional Staff": 0,
     "Satisfied People": 0,
   });
-
-  useEffect(() => {
-    fetch("/api/data")
-      .then((response) => response.json())
-      .then((data: TableData) => setData(data))
-      .catch(console.error);
-  }, []);
 
   const handleIncrease = (property: keyof TableData) => {
     setData((prevData) => ({
@@ -37,21 +30,7 @@ const Statistics: FC = () => {
   };
 
   const handleSubmit = () => {
-    fetch("/api/data", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(data),
-    })
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error("Network response was not ok");
-        }
-        return response.json();
-      })
-      .then(console.log)
-      .catch(console.error);
+    console.warn("Save functionality is not implemented yet.");
   };
 
   return (
