@@ -21,23 +21,14 @@ const Services = () => {
       //   return;
       // }
 
-      const reader = new FileReader();
-      reader.readAsDataURL(selectedImage);
-      reader.onloadend = async () => {
-        const base64data = reader.result;
-        if (typeof base64data !== "string") {
-          console.error("Error: base64data is not a string");
-          return;
-        }
+      try {
+        const formData = new FormData();
+        formData.append("file", selectedImage);
+        formData.append("imageName", images[id].split("/").pop() || "");
+
         const response = await fetch("/api/admin/uploadserviceimage", {
           method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            file: base64data,
-            imageName: images[id].split("/").pop() || "",
-          }),
+          body: formData,
         });
 
         if (response.ok) {
@@ -47,7 +38,10 @@ const Services = () => {
           toast.error("Error uploading and copying image");
           console.error("Error uploading and copying image");
         }
-      };
+      } catch (error) {
+        console.error("Error uploading image:", error);
+        toast.error("Error uploading image");
+      }
     }
   };
 
