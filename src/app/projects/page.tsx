@@ -18,6 +18,9 @@ export default function Projects() {
   const [projects, setProjects] = useState<Project[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [numColumns, setNumColumns] = useState(getNumColumns());
+  const [page, setPage] = useState(1);
+  const [hasMore, setHasMore] = useState(true);
+  const LIMIT = 5; // Loading 5 at a time seems appropriate given the layout
 
   function getNumColumns() {
     if (typeof window !== "undefined") {
@@ -35,32 +38,53 @@ export default function Projects() {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  useEffect(() => {
-    const fetchData = async () => {
-      setIsLoading(true);
-      try {
-        const response = await fetch("/api/projects", {
-          method: "GET",
-          headers: {
-            "Content-Type": "application/json",
-          },
-        });
+  const fetchData = async (pageNum: number) => {
+    setIsLoading(true);
+    try {
+      const response = await fetch(`/api/projects?page=${pageNum}&limit=${LIMIT}`, {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
 
-        if (!response.ok) {
-          throw new Error("Network response was not ok");
-        }
-
-        const data = await response.json();
-        setProjects(data.projects);
-      } catch (error) {
-        console.error("Error fetching data:", error);
-      } finally {
-        setIsLoading(false);
+      if (!response.ok) {
+        throw new Error("Network response was not ok");
       }
-    };
 
-    fetchData();
+      const data = await response.json();
+
+      // If we are on page 1, replace. Else append.
+      if (pageNum === 1) {
+        setProjects(data.projects);
+      } else {
+        setProjects(prev => [...prev, ...data.projects]);
+      }
+
+      // Update pagination state
+      if (data.pagination) {
+        setHasMore(data.pagination.page < data.pagination.totalPages);
+      } else {
+         // Fallback if pagination info is missing (shouldn't happen with updated API)
+         setHasMore(data.projects.length === LIMIT);
+      }
+
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    fetchData(1);
   }, []);
+
+  const handleLoadMore = () => {
+    const nextPage = page + 1;
+    setPage(nextPage);
+    fetchData(nextPage);
+  };
 
   return (
     <>
@@ -220,6 +244,20 @@ export default function Projects() {
             )}
           </div>
         ))}
+
+        {/* Load More Button */}
+        {hasMore && (
+           <div className="flex justify-center mt-10 mb-10">
+            <button
+              onClick={handleLoadMore}
+              disabled={isLoading}
+              className="bg-[#0084EC] rounded-xl px-6 py-3 text-white font-bold hover:bg-blue-600 transition-colors disabled:opacity-50"
+            >
+              {isLoading ? "Loading..." : "Load More"}
+            </button>
+           </div>
+        )}
+
         <div className="sec-title centred mt-20">
           <h2>Powering Progress</h2>
         </div>
