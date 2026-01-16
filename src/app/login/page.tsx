@@ -6,6 +6,7 @@ import { authenticate } from "@/app/lib/actions";
 import Cookies from "js-cookie";
 import { useRouter } from "next/navigation";
 import Head from "next/head";
+import { FaSpinner } from "react-icons/fa";
 
 type Values = {
   username: string;
@@ -25,9 +26,10 @@ const Login = () => {
 
   const handleSubmit = async (
     values: Values,
-    { setSubmitting }: FormikHelpers<Values>
+    { setSubmitting, setStatus }: FormikHelpers<Values>
   ) => {
     try {
+      setStatus(null);
       const formData = new FormData();
       formData.append("username", values.username);
       formData.append("password", values.password);
@@ -44,15 +46,12 @@ const Login = () => {
 
       router.push("/admin/dashboard");
     } catch (error: unknown) {
-      if (error) {
-        // const typedError = error as CustomError;
-        // if (typedError.type === 'CredentialsSignin') {
-        //   return 'Invalid credentials.';
-        // } else {
-        return "Something went wrong.";
-        // }
+      console.error(error);
+      if (error instanceof Error) {
+        setStatus({ error: error.message });
+      } else {
+        setStatus({ error: "Something went wrong." });
       }
-      throw error;
     } finally {
       setSubmitting(false);
     }
@@ -129,8 +128,22 @@ const Login = () => {
             validationSchema={LoginSchema}
             onSubmit={handleSubmit}
           >
-            {({ isSubmitting }) => (
+            {({ isSubmitting, status }) => (
               <Form className="mt-8 space-y-6">
+                {status && status.error && (
+                  <div className="rounded-md bg-red-50 p-4">
+                    <div className="flex">
+                      <div className="ml-3">
+                        <h3 className="text-sm font-medium text-red-800">
+                          Login failed
+                        </h3>
+                        <div className="mt-2 text-sm text-red-700">
+                          <p>{status.error}</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                )}
                 <div className="rounded-md shadow-sm -space-y-px">
                   <div>
                     <label htmlFor="username" className="sr-only">
@@ -170,9 +183,16 @@ const Login = () => {
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                    className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 disabled:opacity-70 disabled:cursor-not-allowed"
                   >
-                    Sign in
+                    {isSubmitting ? (
+                      <>
+                        <FaSpinner className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" />
+                        Signing in...
+                      </>
+                    ) : (
+                      "Sign in"
+                    )}
                   </button>
                 </div>
               </Form>
