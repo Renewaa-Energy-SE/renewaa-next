@@ -1,3 +1,19 @@
+// Debounce function
+function debounce(func, wait, immediate) {
+  var timeout;
+  return function () {
+    var context = this,
+      args = arguments;
+    var later = function () {
+      timeout = null;
+      if (!immediate) func.apply(context, args);
+    };
+    var callNow = immediate && !timeout;
+    clearTimeout(timeout);
+    timeout = setTimeout(later, wait);
+    if (callNow) func.apply(context, args);
+  };
+}
 (function ($) {
   "use strict";
 
@@ -495,18 +511,21 @@
         return false;
       });
 
-      winDow.on("resize", function () {
-        var selector = $filter.find("li.active").attr("data-filter");
+      winDow.on(
+        "resize",
+        debounce(function () {
+          var selector = $filter.find("li.active").attr("data-filter");
 
-        $container.isotope({
-          filter: selector,
-          animationOptions: {
-            duration: 500,
-            easing: "linear",
-            queue: false,
-          },
-        });
-      });
+          $container.isotope({
+            filter: selector,
+            animationOptions: {
+              duration: 500,
+              easing: "linear",
+              queue: false,
+            },
+          });
+        }, 250)
+      );
 
       var filterItemA = $(".filter-btns li");
 
