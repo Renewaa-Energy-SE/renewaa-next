@@ -5,12 +5,11 @@ import * as Yup from "yup";
 import { DropEvent, FileRejection, useDropzone } from "react-dropzone";
 import Sidebar from "../components/Sidebar";
 import {
-  getStorage,
   ref,
   uploadBytesResumable,
   getDownloadURL,
 } from "firebase/storage";
-import { app } from "../../../../firebase"; // assuming firebase.js is in the same directory
+import { app, storage } from "../../../../firebase"; // assuming firebase.js is in the same directory
 import { toast } from "react-toastify";
 
 type FormValues = {
@@ -42,7 +41,6 @@ const ProjectSchema = Yup.object({
 });
 
 const uploadFile = async (file: File) => {
-  const storage = getStorage(app);
   const storageRef = ref(storage, `uploads/${file.name}`);
   const uploadTask = uploadBytesResumable(storageRef, file);
 
