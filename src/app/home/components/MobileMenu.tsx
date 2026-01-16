@@ -17,9 +17,14 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ menuVisible, toggleMenu }) => {
     <div className={`${menuVisible ? "mobile-menu-visible" : ""}`}>
       <div className="mobile-menu ">
         <div className="menu-backdrop"></div>
-        <div className="close-btn" onClick={toggleMenu}>
+        <button
+          className="close-btn"
+          onClick={toggleMenu}
+          type="button"
+          aria-label="Close navigation menu"
+        >
           <i className="fas fa-times" />
-        </div>
+        </button>
         {/* <Scrollbar elementRef={myRef} style={{ height: "100%" }}> */}
         <nav className="flex flex-col menu-box justify-between">
           <div className="nav-logo">
