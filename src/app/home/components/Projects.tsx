@@ -1,6 +1,7 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 
 type Project = {
   projectId: number;
@@ -117,7 +118,14 @@ const Projects = () => {
                 <div className="project-block-one h-full">
                   <div className="inner-box">
                     <figure className="image-box">
-                      <img src={project.image} alt="" />
+                      <Image
+                        src={project.image}
+                        alt={project.category || "Project Image"}
+                        width={600}
+                        height={400}
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                        style={{ width: "100%", height: "auto" }}
+                      />
                     </figure>
                     <div className="text">
                       <h6>[ {project.category} ]</h6>
