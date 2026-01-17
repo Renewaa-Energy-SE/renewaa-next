@@ -1,3 +1,3 @@
-## 2025-05-23 - Inconsistent Error Handling & Feedback Patterns
-**Learning:** The application uses different patterns for form submission feedback. The contact form uses `react-toastify` for success/error messages, while the login form (using Formik) was silently swallowing errors and had no visual feedback mechanism. This inconsistency can lead to developer confusion and a disjointed user experience.
-**Action:** When implementing new forms, standardise on a feedback mechanism. For critical auth flows, inline errors (as added to Login) are often better than toasts as they persist and are contextually placed. For transient actions like "Contact Us", toasts are acceptable but should always be accompanied by a loading state on the button.
+## 2024-05-24 - Async Loading States
+**Learning:** Users lack feedback during async form submissions when using standard HTML forms + fetch. Adding a visual loading state prevents double-submissions and anxiety.
+**Action:** Always wrap `fetch` calls in a `try/finally` block that manages an `isSubmitting` state, and reflect this in the UI via disabled buttons and spinners.
