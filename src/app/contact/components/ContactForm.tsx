@@ -1,28 +1,38 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import { toast } from "react-toastify";
 
 const ContactForm = () => {
+  const [isLoading, setIsLoading] = useState(false);
+
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+    setIsLoading(true);
 
     const form = event.currentTarget;
     const formData = new FormData(form);
 
-    const response = await fetch("/api/sendEmail", {
-      method: "POST",
-      body: JSON.stringify(Object.fromEntries(formData)),
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
-    if (response.status == 200) {
-      toast.info("Email sent successfully");
-      console.log("Email sent successfully");
-      form.reset(); // This will clear the form
-    } else {
-      toast.error("Error sending email");
-      console.error("Error sending email");
+    try {
+      const response = await fetch("/api/sendEmail", {
+        method: "POST",
+        body: JSON.stringify(Object.fromEntries(formData)),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+      if (response.status == 200) {
+        toast.info("Email sent successfully");
+        console.log("Email sent successfully");
+        form.reset(); // This will clear the form
+      } else {
+        toast.error("Error sending email");
+        console.error("Error sending email");
+      }
+    } catch (error) {
+      console.error("Error submitting form", error);
+      toast.error("An unexpected error occurred. Please try again.");
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -98,9 +108,22 @@ const ContactForm = () => {
                     className="theme-btn btn-one"
                     type="submit"
                     name="submit-form"
+                    disabled={isLoading}
+                    style={
+                      isLoading
+                        ? { opacity: 0.7, cursor: "not-allowed" }
+                        : undefined
+                    }
                   >
-                    <i className="flaticon-right-arrow" />
-                    Submit
+                    {isLoading ? (
+                      <>
+                        <i className="fas fa-spinner fa-spin" /> Sending...
+                      </>
+                    ) : (
+                      <>
+                        <i className="flaticon-right-arrow" /> Submit
+                      </>
+                    )}
                   </button>
                 </div>
               </div>
