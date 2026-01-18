@@ -1,28 +1,40 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import { toast } from "react-toastify";
 
 const ContactForm = () => {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
+    if (isSubmitting) return;
+
+    setIsSubmitting(true);
     const form = event.currentTarget;
     const formData = new FormData(form);
 
-    const response = await fetch("/api/sendEmail", {
-      method: "POST",
-      body: JSON.stringify(Object.fromEntries(formData)),
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
-    if (response.status == 200) {
-      toast.info("Email sent successfully");
-      console.log("Email sent successfully");
-      form.reset(); // This will clear the form
-    } else {
+    try {
+      const response = await fetch("/api/sendEmail", {
+        method: "POST",
+        body: JSON.stringify(Object.fromEntries(formData)),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+      if (response.status == 200) {
+        toast.info("Email sent successfully");
+        console.log("Email sent successfully");
+        form.reset(); // This will clear the form
+      } else {
+        toast.error("Error sending email");
+        console.error("Error sending email");
+      }
+    } catch (error) {
+      console.error("Error sending email:", error);
       toast.error("Error sending email");
-      console.error("Error sending email");
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -41,6 +53,7 @@ const ContactForm = () => {
             id="contact-form"
             className="default-form"
             onSubmit={handleSubmit}
+            aria-busy={isSubmitting}
           >
             <div className="row clearfix">
               <div className="col-lg-6 col-md-6 col-sm-12 column">
@@ -95,12 +108,23 @@ const ContactForm = () => {
               <div className="col-lg-12 col-md-12 col-sm-12 column">
                 <div className="message-btn">
                   <button
-                    className="theme-btn btn-one"
+                    className={`theme-btn btn-one ${isSubmitting ? "opacity-70 cursor-not-allowed" : ""}`}
                     type="submit"
                     name="submit-form"
+                    disabled={isSubmitting}
+                    aria-disabled={isSubmitting}
                   >
-                    <i className="flaticon-right-arrow" />
-                    Submit
+                    {isSubmitting ? (
+                      <>
+                        <i className="fas fa-spinner fa-spin" aria-hidden="true" />
+                        Sending...
+                      </>
+                    ) : (
+                      <>
+                        <i className="flaticon-right-arrow" aria-hidden="true" />
+                        Submit
+                      </>
+                    )}
                   </button>
                 </div>
               </div>
