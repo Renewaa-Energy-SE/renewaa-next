@@ -3,15 +3,19 @@ import path from "path";
 
 export async function POST(req: Request) {
   try {
-    const body = await req.json();
-    // console.log(body);
-    const { file: base64data, imageName } = body;
+    const formData = await req.formData();
+    const file = formData.get("file") as File;
+    const imageName = formData.get("imageName") as string;
 
-    // Remove the data URL prefix and convert the base64 string to a Buffer
-    const data = Buffer.from(
-      (base64data as string).replace(/^data:image\/\w+;base64,/, ""),
-      "base64"
-    );
+    if (!file || !imageName) {
+      return new Response(JSON.stringify({ status: "File or imageName missing" }), {
+        status: 400,
+      });
+    }
+
+    const arrayBuffer = await file.arrayBuffer();
+    const buffer = Buffer.from(arrayBuffer);
+
     // Write the data to a file
     const targetPath = path.join(
       process.cwd(),
@@ -19,7 +23,7 @@ export async function POST(req: Request) {
       imageName
     );
     await new Promise((resolve, reject) => {
-      fs.writeFile(targetPath, data, (err) => {
+      fs.writeFile(targetPath, buffer, (err) => {
         if (err) {
           console.error("Error saving the file: ", err);
           reject(err);
