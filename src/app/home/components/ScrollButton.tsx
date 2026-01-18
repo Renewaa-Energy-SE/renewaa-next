@@ -42,6 +42,7 @@ const ScrollButton = () => {
       ref={buttonRef}
       className={`scroll-top scroll-to-target ${isVisible ? "open" : ""}`}
       data-target="html"
+      aria-label="Scroll to top"
     >
       <i className="flaticon-up-arrow" />
     </button>
