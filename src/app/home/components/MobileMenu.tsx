@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState, useCallback } from "react";
+import { useState } from "react";
 import Link from "next/link";
 // import { Scrollbar } from "react-scrollbars-custom";
 
@@ -93,27 +93,27 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ menuVisible, toggleMenu }) => {
           <div className="social-links">
             <ul className="clearfix">
               <li>
-                <Link href="/home" scroll={false}>
+                <Link href="/home" scroll={false} aria-label="Twitter">
                   <span className="fab fa-twitter" />
                 </Link>
               </li>
               <li>
-                <Link href="/home" scroll={false}>
+                <Link href="/home" scroll={false} aria-label="Facebook">
                   <span className="fab fa-facebook-square" />
                 </Link>
               </li>
               <li>
-                <Link href="/home" scroll={false}>
+                <Link href="/home" scroll={false} aria-label="Pinterest">
                   <span className="fab fa-pinterest-p" />
                 </Link>
               </li>
               <li>
-                <Link href="/home" scroll={false}>
+                <Link href="/home" scroll={false} aria-label="Instagram">
                   <span className="fab fa-instagram" />
                 </Link>
               </li>
               <li>
-                <Link href="/home" scroll={false}>
+                <Link href="/home" scroll={false} aria-label="YouTube">
                   <span className="fab fa-youtube" />
                 </Link>
               </li>
