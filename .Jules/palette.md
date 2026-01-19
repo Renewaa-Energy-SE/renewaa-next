@@ -5,3 +5,7 @@
 ## 2026-01-17 - Manual State Management for Native Forms
 **Learning:** The contact form relies on native `fetch` within a React component, contrasting with Formik used elsewhere. This approach requires explicit manual management of loading states (`isLoading`) to provide visual feedback and prevent double-submission, which is automatically handled or more structured in libraries like Formik.
 **Action:** When maintaining or creating `fetch`-based forms, always explicitly implement an `isLoading` state variable that disables the submit button and provides visual feedback (e.g., spinner) during the network request.
+
+## 2026-01-19 - Accessibility of Icon-Only Links
+**Learning:** The `MobileMenu` component used icon-only links for social media without `aria-label` or `title`, making them inaccessible to screen readers.
+**Action:** Always verify that icon-only interactive elements (links, buttons) have accessible names via `aria-label` or `title`, especially in navigation components.
