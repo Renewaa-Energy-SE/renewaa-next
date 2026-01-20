@@ -93,27 +93,47 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ menuVisible, toggleMenu }) => {
           <div className="social-links">
             <ul className="clearfix">
               <li>
-                <Link href="/home" scroll={false}>
+                <Link
+                  href="/home"
+                  scroll={false}
+                  aria-label="Visit our Twitter page"
+                >
                   <span className="fab fa-twitter" />
                 </Link>
               </li>
               <li>
-                <Link href="/home" scroll={false}>
+                <Link
+                  href="/home"
+                  scroll={false}
+                  aria-label="Visit our Facebook page"
+                >
                   <span className="fab fa-facebook-square" />
                 </Link>
               </li>
               <li>
-                <Link href="/home" scroll={false}>
+                <Link
+                  href="/home"
+                  scroll={false}
+                  aria-label="Visit our Pinterest page"
+                >
                   <span className="fab fa-pinterest-p" />
                 </Link>
               </li>
               <li>
-                <Link href="/home" scroll={false}>
+                <Link
+                  href="/home"
+                  scroll={false}
+                  aria-label="Visit our Instagram page"
+                >
                   <span className="fab fa-instagram" />
                 </Link>
               </li>
               <li>
-                <Link href="/home" scroll={false}>
+                <Link
+                  href="/home"
+                  scroll={false}
+                  aria-label="Visit our YouTube channel"
+                >
                   <span className="fab fa-youtube" />
                 </Link>
               </li>
