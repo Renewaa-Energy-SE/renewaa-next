@@ -61,6 +61,7 @@ const ContactForm = () => {
                     name="username"
                     placeholder="Your Name"
                     required={true}
+                    aria-label="Your Name"
                   />
                 </div>
               </div>
@@ -72,6 +73,7 @@ const ContactForm = () => {
                     name="email"
                     placeholder="Email Address"
                     required={true}
+                    aria-label="Email Address"
                   />
                 </div>
               </div>
@@ -83,13 +85,19 @@ const ContactForm = () => {
                     name="phone"
                     required={true}
                     placeholder="Phone Number"
+                    aria-label="Phone Number"
                   />
                 </div>
               </div>
               <div className="col-lg-6 col-md-12 col-sm-12 column">
                 <div className="form-group">
                   <i className="far fa-desktop" />
-                  <input type="text" name="subject" placeholder="Company" />
+                  <input
+                    type="text"
+                    name="subject"
+                    placeholder="Company"
+                    aria-label="Company"
+                  />
                 </div>
               </div>
               <div className="col-lg-12 col-md-12 col-sm-12 column">
@@ -99,6 +107,7 @@ const ContactForm = () => {
                     name="message"
                     placeholder="Your Message..."
                     defaultValue={""}
+                    aria-label="Your Message"
                   />
                 </div>
               </div>
