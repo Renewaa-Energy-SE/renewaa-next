@@ -27,7 +27,7 @@ const Footer = () => {
               <div className="footer-widget logo-widget">
                 <figure className="footer-logo">
                   <Link href="/home" scroll={false}>
-                    <img src="/assets/images/rwenaa-logo.png" alt="" />
+                    <img src="/assets/images/rwenaa-logo.png" alt="Renewaa Home" />
                   </Link>
                 </figure>
                 <div className="support-box">

@@ -29,7 +29,7 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ menuVisible, toggleMenu }) => {
         <nav className="flex flex-col menu-box justify-between">
           <div className="nav-logo">
             <Link href="/home" scroll={false}>
-              <img src="/assets/images/rwenaa-logo.png" alt="" title="" />
+              <img src="/assets/images/rwenaa-logo.png" alt="Renewaa Home" />
             </Link>
           </div>
           <div className="menu-outer">
@@ -93,27 +93,27 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ menuVisible, toggleMenu }) => {
           <div className="social-links">
             <ul className="clearfix">
               <li>
-                <Link href="/home" scroll={false}>
+                <Link href="/home" scroll={false} aria-label="Twitter">
                   <span className="fab fa-twitter" />
                 </Link>
               </li>
               <li>
-                <Link href="/home" scroll={false}>
+                <Link href="/home" scroll={false} aria-label="Facebook">
                   <span className="fab fa-facebook-square" />
                 </Link>
               </li>
               <li>
-                <Link href="/home" scroll={false}>
+                <Link href="/home" scroll={false} aria-label="Pinterest">
                   <span className="fab fa-pinterest-p" />
                 </Link>
               </li>
               <li>
-                <Link href="/home" scroll={false}>
+                <Link href="/home" scroll={false} aria-label="Instagram">
                   <span className="fab fa-instagram" />
                 </Link>
               </li>
               <li>
-                <Link href="/home" scroll={false}>
+                <Link href="/home" scroll={false} aria-label="YouTube">
                   <span className="fab fa-youtube" />
                 </Link>
               </li>
