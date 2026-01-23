@@ -5,3 +5,7 @@
 ## 2026-01-17 - Manual State Management for Native Forms
 **Learning:** The contact form relies on native `fetch` within a React component, contrasting with Formik used elsewhere. This approach requires explicit manual management of loading states (`isLoading`) to provide visual feedback and prevent double-submission, which is automatically handled or more structured in libraries like Formik.
 **Action:** When maintaining or creating `fetch`-based forms, always explicitly implement an `isLoading` state variable that disables the submit button and provides visual feedback (e.g., spinner) during the network request.
+
+## 2026-02-15 - Accessibility in Placeholder-Only Designs
+**Learning:** The contact form relied solely on placeholders for labels, which disappears upon typing and is inaccessible to screen readers. Additionally, decorative icons were not hidden, potentially causing confusion.
+**Action:** For designs lacking visible labels, always provide an `aria-label` matching the placeholder. Ensure all decorative icons (like those inside input groups or buttons) include `aria-hidden="true"`.
