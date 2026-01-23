@@ -2,6 +2,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import MobileMenu from "@/app/home/components/MobileMenu";
+import ThemeSwitcher from "./ThemeSwitcher";
 
 const Header = () => {
   const [isSticky, setIsSticky] = useState(false);
@@ -115,6 +116,9 @@ const Header = () => {
                           >
                             CONTACT US
                           </Link>
+                        </li>
+                        <li>
+                          <ThemeSwitcher />
                         </li>
                       </ul>
                     </div>

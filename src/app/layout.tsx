@@ -16,6 +16,7 @@ import Loader from "@/components/Loader";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import SnowEffect from "@/components/SnowEffect";
+import ThemeProvider from "@/components/ThemeProvider";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -30,13 +31,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body className={inter.className}>
-        <SnowEffect />
-        <Loader />
-        <Header />
-        {children}
-        <Footer />
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+          <SnowEffect />
+          <Loader />
+          <Header />
+          {children}
+          <Footer />
+        </ThemeProvider>
       </body>
     </html>
   );
