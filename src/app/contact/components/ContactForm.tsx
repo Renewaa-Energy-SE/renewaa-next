@@ -62,6 +62,7 @@ const ContactForm = () => {
                     placeholder="Your Name"
                     aria-label="Your Name"
                     required={true}
+                    aria-label="Your Name"
                   />
                 </div>
               </div>
@@ -74,6 +75,7 @@ const ContactForm = () => {
                     placeholder="Email Address"
                     aria-label="Email Address"
                     required={true}
+                    aria-label="Email Address"
                   />
                 </div>
               </div>
@@ -108,6 +110,7 @@ const ContactForm = () => {
                     placeholder="Your Message..."
                     aria-label="Your Message..."
                     defaultValue={""}
+                    aria-label="Your Message"
                   />
                 </div>
               </div>
@@ -118,6 +121,8 @@ const ContactForm = () => {
                     type="submit"
                     name="submit-form"
                     disabled={isLoading}
+                    aria-busy={isLoading}
+                    aria-disabled={isLoading}
                     style={
                       isLoading
                         ? { opacity: 0.7, cursor: "not-allowed" }
