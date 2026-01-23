@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState, useCallback } from "react";
+import { useState } from "react";
 import Link from "next/link";
 // import { Scrollbar } from "react-scrollbars-custom";
 
