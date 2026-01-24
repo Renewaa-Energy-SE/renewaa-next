@@ -60,7 +60,6 @@ const ContactForm = () => {
                     type="text"
                     name="username"
                     placeholder="Your Name"
-                    aria-label="Your Name"
                     required={true}
                   />
                 </div>
@@ -72,7 +71,6 @@ const ContactForm = () => {
                     type="email"
                     name="email"
                     placeholder="Email Address"
-                    aria-label="Email Address"
                     required={true}
                   />
                 </div>
@@ -106,6 +104,7 @@ const ContactForm = () => {
                   <textarea
                     name="message"
                     placeholder="Your Message..."
+                    defaultValue={""}
                     aria-label="Your Message"
                     defaultValue={""}
                   />
