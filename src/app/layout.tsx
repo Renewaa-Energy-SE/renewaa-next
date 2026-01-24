@@ -15,8 +15,6 @@ import "./styles/responsive.css";
 import Loader from "@/components/Loader";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
-import SnowEffect from "@/components/SnowEffect";
-
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -32,12 +30,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <SnowEffect />
         <Loader />
         <Header />
         {children}
         <Footer />
-      </body>
-    </html>
+      </body >
+    </html >
   );
 }
