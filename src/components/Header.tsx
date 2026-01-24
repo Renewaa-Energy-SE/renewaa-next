@@ -91,7 +91,7 @@ const Header = () => {
                         <li className="text-white">
                           <Link
                             href="/home"
-                            className="hover:text-[#0084ec] text-black font-bold font-sans text-sm"
+                            className="hover:text-[#0084ec] text-black font-bold font-['Lexend'] text-sm"
                             scroll={false}
                           >
                             HOME
@@ -100,7 +100,7 @@ const Header = () => {
                         <li className="text-white">
                           <Link
                             href="/about"
-                            className="hover:text-[#0084ec] text-black font-bold font-sans text-sm whitespace-nowrap"
+                            className="hover:text-[#0084ec] text-black font-bold font-['Lexend'] text-sm whitespace-nowrap"
                             scroll={false}
                           >
                             ABOUT US
@@ -109,7 +109,7 @@ const Header = () => {
                         <li className="text-white">
                           <Link
                             href="/projects"
-                            className="hover:text-[#0084ec] text-black font-bold font-sans text-sm"
+                            className="hover:text-[#0084ec] text-black font-bold font-['Lexend'] text-sm"
                           >
                             PROJECTS
                           </Link>
@@ -117,7 +117,7 @@ const Header = () => {
                         <li className="text-white">
                           <Link
                             href="/contact"
-                            className="hover:text-[#0084ec] text-black font-bold font-sans text-sm whitespace-nowrap"
+                            className="hover:text-[#0084ec] text-black font-bold font-['Lexend'] text-sm whitespace-nowrap"
                             scroll={false}
                           >
                             CONTACT US
@@ -132,18 +132,18 @@ const Header = () => {
                 <div className="support-box">
                   <h5>
                     <i className="fas fa-headphones" />
-                    <span>(074) 3020154 </span>
+                    <span className="font-['Lexend']">(074) 3020154 </span>
                   </h5>
                   <ul className="info-box">
                     <li>
                       <i className="far fa-map" />
                       <h6>Address</h6>
-                      <span>L2-14, Realty Plaza, Ja-Ela, Sri Lanka</span>
+                      <span className="font-['Lexend']">L2-14, Realty Plaza, Ja-Ela, Sri Lanka</span>
                     </li>
                     <li>
                       <i className="far fa-envelope-open" />
                       <h6>Email</h6>
-                      <span>
+                      <span className="font-['Lexend']">
                         <a href="mailto:info@renewaa.com">
                           info@renewaa.com
                           <br />
@@ -153,7 +153,7 @@ const Header = () => {
                     <li>
                       <i className="far fa-clock" />
                       <h6>Office Hours</h6>
-                      <span>Mon - Sat: 9.00am to 6.30pm</span>
+                      <span className="font-['Lexend']">Mon - Sat: 9.00am to 6.30pm</span>
                     </li>
                   </ul>
                 </div>
@@ -201,7 +201,7 @@ const Header = () => {
                         <li className="text-white">
                           <Link
                             href="/home"
-                            className="hover:text-[#0084ec] text-black font-bold font-sans text-sm"
+                            className="hover:text-[#0084ec] text-black font-bold font-['Lexend'] text-sm"
                             scroll={false}
                           >
                             HOME
@@ -210,7 +210,7 @@ const Header = () => {
                         <li className="text-white">
                           <Link
                             href="/about"
-                            className="hover:text-[#0084ec] text-black font-bold font-sans text-sm whitespace-nowrap"
+                            className="hover:text-[#0084ec] text-black font-bold font-['Lexend'] text-sm whitespace-nowrap"
                             scroll={false}
                           >
                             ABOUT US
@@ -219,7 +219,7 @@ const Header = () => {
                         <li className="text-white">
                           <Link
                             href="/projects"
-                            className="hover:text-[#0084ec] text-black font-bold font-sans text-sm"
+                            className="hover:text-[#0084ec] text-black font-bold font-['Lexend'] text-sm"
                             scroll={false}
                           >
                             PROJECTS
@@ -228,7 +228,7 @@ const Header = () => {
                         <li className="text-white">
                           <Link
                             href="/contact"
-                            className="hover:text-[#0084ec] text-black font-bold font-sans text-sm whitespace-nowrap"
+                            className="hover:text-[#0084ec] text-black font-bold font-['Lexend'] text-sm whitespace-nowrap"
                             scroll={false}
                           >
                             CONTACT US
@@ -243,18 +243,18 @@ const Header = () => {
                 <div className="support-box">
                   <h5>
                     <i className="fas fa-headphones" />
-                    <span>(074) 3020154 </span>
+                    <span className="font-['Lexend']">(074) 3020154 </span>
                   </h5>
                   <ul className="info-box">
                     <li>
                       <i className="far fa-map" />
                       <h6>Address</h6>
-                      <span>L2-14, Realty Plaza, Ja-Ela, Sri Lanka</span>
+                      <span className="font-['Lexend']">L2-14, Realty Plaza, Ja-Ela, Sri Lanka</span>
                     </li>
                     <li>
                       <i className="far fa-envelope-open" />
                       <h6>Email</h6>
-                      <span>
+                      <span className="font-['Lexend']">
                         <a href="mailto:info@renewaa.com">
                           info@renewaa.com
                           <br />
@@ -264,7 +264,7 @@ const Header = () => {
                     <li>
                       <i className="far fa-clock" />
                       <h6>Office Hours</h6>
-                      <span>Mon - Sat: 9.00am to 6.30pm</span>
+                      <span className="font-['Lexend']">Mon - Sat: 9.00am to 6.30pm</span>
                     </li>
                   </ul>
                 </div>
