@@ -47,8 +47,11 @@ const Loader = () => {
         <div className="preloader-close" ref={preloaderCloseRef}>
           x
         </div>
-        <div id="handle-preloader" className="handle-preloader bg-[#1e2434]">
-          <div className="animation-preloader">
+        <div
+          id="handle-preloader"
+          className="handle-preloader bg-[#1e2434] flex h-screen w-full items-center justify-center"
+        >
+          <div className="animation-preloader" style={{ position: "relative" }}>
             <div className="relative flex justify-center items-center mb-12">
               <div
                 className="spinner"
