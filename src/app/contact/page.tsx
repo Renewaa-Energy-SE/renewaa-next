@@ -89,12 +89,9 @@ export default function Contact() {
               <div className="title">
                 <h1>Contact Us</h1>
               </div>
-              <ul className="bread-crumb clearfix pull-right">
-                <li>
-                  <a href="/home">Home</a>
-                </li>
-                <li>Contact</li>
-              </ul>
+              <div className="title">
+                <h1>Contact Us</h1>
+              </div>
             </div>
           </div>
         </section>

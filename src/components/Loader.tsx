@@ -1,4 +1,5 @@
 "use client";
+import Image from "next/image";
 import React, { useEffect, useRef } from "react";
 
 const Loader = () => {
@@ -46,16 +47,26 @@ const Loader = () => {
         <div className="preloader-close" ref={preloaderCloseRef}>
           x
         </div>
-        <div id="handle-preloader" className="handle-preloader">
-          <div className="animation-preloader">
-            {/* <div className="spinner-container">
-              <img
+        <div
+          id="handle-preloader"
+          className="handle-preloader bg-[#1e2434] flex h-screen w-full items-center justify-center"
+        >
+          <div className="animation-preloader" style={{ position: "relative" }}>
+            <div className="relative flex justify-center items-center mb-12">
+              <div
                 className="spinner"
-                src="/assets/images/rwenaa-logo.png"
-                alt="Loading..."
-              />
-            </div> */}
-            <div className="spinner"></div>
+                style={{ margin: "0", width: "150px", height: "150px" }}
+              ></div>
+              <div className="absolute">
+                <Image
+                  src="/assets/images/icons/Rewenaa-icon.svg"
+                  alt="Renewaa"
+                  width={80}
+                  height={80}
+                  className="w-20 h-20 object-contain"
+                />
+              </div>
+            </div>
 
             <div className="txt-loading">
               <span data-text-preloader="r" className="letters-loading">

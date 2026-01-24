@@ -18,10 +18,7 @@ export default function Home() {
         content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
       />
       {/* Title Tag */}
-      <title>
-        Renewaa | Home - Your Premier Destination for Cutting-Edge Lithium
-        Battery Solutions
-      </title>
+      <title>Renewaa | Sustainable Energy Solutions</title>
       {/* Meta Description Tag */}
       <meta
         name="description"

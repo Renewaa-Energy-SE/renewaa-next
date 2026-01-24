@@ -21,37 +21,37 @@ const Projects = () => {
       projectId: 1,
       category: "energy",
       size: "small-column",
-      image: "/assets/images/gallery/projects-energy copy.jpg",
+      image: "/assets/images/gallery/projects-energy.png",
       colsStyles: "col-lg-4 col-md-6 col-sm-12",
       linkText: "Leading the energy transition",
-      linkImage: "/assets/images/gallery/projects-energy-view.jpg",
+      linkImage: "/assets/images/gallery/projects-energy.png",
     },
     {
       projectId: 2,
       category: "research",
       size: "small-column",
-      image: "/assets/images/gallery/projects-research copy.jpg",
+      image: "/assets/images/gallery/projects-research.png",
       colsStyles: "col-lg-4 col-md-6 col-sm-12",
       linkText: "Leading the Research transition",
-      linkImage: "/assets/images/gallery/projects-research-view.jpg",
+      linkImage: "/assets/images/gallery/projects-research.png",
     },
     {
       projectId: 3,
       category: "insights",
       size: "",
-      image: "/assets/images/gallery/projects-insight copy.jpg",
+      image: "/assets/images/gallery/projects-insight.png",
       colsStyles: "col-lg-4 col-md-6 col-sm-12",
       linkText: "Leading the Insights transition",
-      linkImage: "/assets/images/gallery/projects-insight-view.jpg",
+      linkImage: "/assets/images/gallery/projects-insight.png",
     },
     {
       projectId: 4,
       category: "innovations",
       size: "small-column",
-      image: "/assets/images/gallery/projects-inovation copy.jpg",
+      image: "/assets/images/gallery/projects-innovation.png",
       colsStyles: "col-lg-8 col-md-6 col-sm-12",
       linkText: "Leading the Innovations transition",
-      linkImage: "/assets/images/gallery/projects-inovation-view.jpg",
+      linkImage: "/assets/images/gallery/projects-innovation.png",
     },
   ];
 
@@ -105,15 +105,12 @@ const Projects = () => {
             {filteredProjects.map((project, index) => (
               <div
                 key={index}
-                className={`masonry-item ${project.size} ${
-                  project.category
-                } col-span-1 ${
-                  index === 2 ? "md:col-span-1 md:row-span-2" : ""
-                } ${
-                  index === 3
+                className={`masonry-item ${project.size} ${project.category
+                  } col-span-1 ${index === 2 ? "md:col-span-1 md:row-span-2" : ""
+                  } ${index === 3
                     ? "md:col-span-1 lg:col-span-2 md:small-column"
                     : ""
-                }`}
+                  }`}
               >
                 <div className="project-block-one h-full">
                   <div className="inner-box">
@@ -159,156 +156,6 @@ const Projects = () => {
               </div>
             ))}
           </div>
-          {/* <div className="items-container row clearfix">
-            <div className="col-lg-4 col-md-6 col-sm-12 masonry-item small-column">
-              <div className="project-block-one">
-                <div className="inner-box">
-                  <figure className="image-box">
-                    <img
-                      src="/assets/images/gallery/projects-energy.jpg"
-                      alt=""
-                    />
-                  </figure>
-                  <div className="text">
-                    <h6>[ Energy ]</h6>
-                  </div>
-                  <div className="overlay-content">
-                    <div className="view-btn">
-                      <Link
-                        href="/assets/images/gallery/projects-energy-view.jpg"
-                        className="lightbox-image"
-                        data-fancybox="gallery"
-                      >
-                        <i className="flaticon-zooming" />
-                      </Link>
-                    </div>
-                    <div className="inner">
-                      <h6>[ Energy ]</h6>
-                      <h5>
-                        <Link href="#">Leading the energy transition</Link>
-                      </h5>
-                      <div className="link">
-                        <Link href="#">
-                          <i className="flaticon-right-arrow" />
-                        </Link>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="col-lg-4 col-md-6 col-sm-12 masonry-item small-column">
-              <div className="project-block-one">
-                <div className="inner-box">
-                  <figure className="image-box">
-                    <img
-                      src="/assets/images/gallery/projects-research.jpg"
-                      alt=""
-                    />
-                  </figure>
-                  <div className="text">
-                    <h6>[ Research ]</h6>
-                  </div>
-                  <div className="overlay-content">
-                    <div className="view-btn">
-                      <Link
-                        href="/assets/images/gallery/projects-research-view.jpg"
-                        className="lightbox-image"
-                        data-fancybox="gallery"
-                      >
-                        <i className="flaticon-zooming" />
-                      </Link>
-                    </div>
-                    <div className="inner">
-                      <h6>[ Research ]</h6>
-                      <h5>
-                        <Link href="#">Leading the Research transition</Link>
-                      </h5>
-                      <div className="link">
-                        <Link href="#">
-                          <i className="flaticon-right-arrow" />
-                        </Link>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="col-lg-4 col-md-6 col-sm-12 masonry-item">
-              <div className="project-block-one">
-                <div className="inner-box">
-                  <figure className="image-box">
-                    <img
-                      src="/assets/images/gallery/projects-insight.jpg"
-                      alt=""
-                    />
-                  </figure>
-                  <div className="text">
-                    <h6>[ Insights ]</h6>
-                  </div>
-                  <div className="overlay-content">
-                    <div className="view-btn">
-                      <Link
-                        href="/assets/images/gallery/projects-insight-view.jpg"
-                        className="lightbox-image"
-                        data-fancybox="gallery"
-                      >
-                        <i className="flaticon-zooming" />
-                      </Link>
-                    </div>
-                    <div className="inner">
-                      <h6>[ Insights ]</h6>
-                      <h5>
-                        <Link href="#">Leading the Insights transition</Link>
-                      </h5>
-                      <div className="link">
-                        <Link href="#">
-                          <i className="flaticon-right-arrow" />
-                        </Link>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="col-lg-8 col-md-6 col-sm-12 masonry-item small-column">
-              <div className="project-block-one">
-                <div className="inner-box">
-                  <figure className="image-box">
-                    <img
-                      src="/assets/images/gallery/projects-inovation.jpg"
-                      alt=""
-                    />
-                  </figure>
-                  <div className="text">
-                    <h6>[ Innovations ]</h6>
-                  </div>
-                  <div className="overlay-content">
-                    <div className="view-btn">
-                      <Link
-                        href="/assets/images/gallery/projects-inovation-view.jpg"
-                        className="lightbox-image"
-                        data-fancybox="gallery"
-                      >
-                        <i className="flaticon-zooming" />
-                      </Link>
-                    </div>
-                    <div className="inner">
-                      <h6>[ Innovations ]</h6>
-                      <h5>
-                        <Link href="#">Leading the Innovations transition</Link>
-                      </h5>
-                      <div className="link">
-                        <Link href="#">
-                          <i className="flaticon-right-arrow" />
-                        </Link>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div> */}
-          {/* </div> */}
         </div>
       </div>
     </section>
