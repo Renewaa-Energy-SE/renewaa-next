@@ -86,13 +86,7 @@ const About = () => {
           <div className="auto-container">
             <div className="content-box clearfix">
               <div className="title">{/* <h1>About Company</h1> */}</div>
-              <ul className="bread-crumb clearfix pull-right">
-                <li>
-                  <a href="/home">Home</a>
-                </li>
-                <li>About</li>
-                <li>Company</li>
-              </ul>
+              <div className="title">{/* <h1>About Company</h1> */}</div>
             </div>
           </div>
         </section>
