@@ -66,7 +66,10 @@ const uploadFile = async (file: File) => {
 
 const handleSubmit = async (
   values: any,
-  { resetForm }: { resetForm: () => void }
+  {
+    resetForm,
+    setSubmitting,
+  }: { resetForm: () => void; setSubmitting: (isSubmitting: boolean) => void }
 ) => {
   try {
     // Create a copy of the form values to avoid mutating the original object
@@ -104,6 +107,8 @@ const handleSubmit = async (
     }
   } catch (error) {
     console.error("Error submitting project:", error);
+  } finally {
+    setSubmitting(false);
   }
 };
 
@@ -124,7 +129,7 @@ const AddProject = () => {
             validationSchema={ProjectSchema}
             onSubmit={handleSubmit}
           >
-            {({ values, setFieldValue }) => (
+            {({ values, setFieldValue, isSubmitting }) => (
               <Form className="space-y-4 w-full">
                 <div className="flex flex-col space-y-1">
                   <label htmlFor="title" className="text-sm font-medium">
@@ -155,6 +160,7 @@ const AddProject = () => {
                             type="button"
                             onClick={() => remove(index)}
                             className="p-1 bg-red-500 text-white rounded-md"
+                            aria-label={`Remove paragraph ${index + 1}`}
                           >
                             Remove
                           </button>
@@ -203,9 +209,22 @@ const AddProject = () => {
                 <div className="flex w-full justify-end">
                   <button
                     type="submit"
-                    className="py-2 px-4 bg-red-700 text-white rounded-md hover:outline-1 hover:outline hover:outline-red-800"
+                    disabled={isSubmitting}
+                    aria-busy={isSubmitting}
+                    aria-label="Submit Project"
+                    className="py-2 px-4 bg-red-700 text-white rounded-md hover:outline-1 hover:outline hover:outline-red-800 disabled:opacity-70 disabled:cursor-not-allowed"
                   >
-                    Submit
+                    {isSubmitting ? (
+                      <>
+                        <i
+                          className="fas fa-spinner fa-spin mr-2"
+                          aria-hidden="true"
+                        ></i>{" "}
+                        Submitting...
+                      </>
+                    ) : (
+                      "Submit"
+                    )}
                   </button>
                 </div>
               </Form>
@@ -233,6 +252,7 @@ const FileUpload: React.FC<FileUploadProps> = ({ setFieldValue, name }) => {
         type="button"
         className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
         onClick={open}
+        aria-label="Browse files to upload"
       >
         Browse Files
       </button>
