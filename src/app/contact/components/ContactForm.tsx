@@ -104,7 +104,6 @@ const ContactForm = () => {
                   <textarea
                     name="message"
                     placeholder="Your Message..."
-                    defaultValue={""}
                     aria-label="Your Message"
                     defaultValue={""}
                   />
