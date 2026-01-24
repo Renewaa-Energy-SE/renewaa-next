@@ -1,5 +1,6 @@
 "use client";
 import useEffectOnce from "@/app/hooks/useeffectonce";
+import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
@@ -15,7 +16,7 @@ const Footer = () => {
     }
 
     // Return a no-op function if there's no cleanup needed
-    return () => {};
+    return () => { };
   });
 
   return (
@@ -27,7 +28,13 @@ const Footer = () => {
               <div className="footer-widget logo-widget">
                 <figure className="footer-logo">
                   <Link href="/home" scroll={false}>
-                    <img src="/assets/images/rwenaa-logo.png" alt="" />
+                    <Image
+                      src="/assets/images/rwenaa-logo.png"
+                      alt="Renewaa Logo"
+                      width={150}
+                      height={50}
+                      className="object-contain"
+                    />
                   </Link>
                 </figure>
                 <div className="support-box">

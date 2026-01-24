@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 const Services = () => {
   return (
@@ -36,9 +37,12 @@ const Services = () => {
             >
               <div className="inner-box">
                 <figure className="image-box">
-                  <img
-                    src="/assets/images/service/service-tech copy.jpg"
-                    alt=""
+                  <Image
+                    src="/assets/images/service/service-tech.png"
+                    alt="Electric Mobility Solutions"
+                    width={400}
+                    height={300}
+                    style={{ width: "100%", height: "auto" }}
                   />
                 </figure>
                 <div className="content-box">
@@ -67,9 +71,12 @@ const Services = () => {
             >
               <div className="inner-box">
                 <figure className="image-box">
-                  <img
-                    src="/assets/images/service/service-maintenance - Copy.jpg"
-                    alt=""
+                  <Image
+                    src="/assets/images/service/service-maintenance.png"
+                    alt="Energy Storage Solutions"
+                    width={400}
+                    height={300}
+                    style={{ width: "100%", height: "auto" }}
                   />
                 </figure>
                 <div className="content-box">
@@ -98,9 +105,12 @@ const Services = () => {
             >
               <div className="inner-box">
                 <figure className="image-box">
-                  <img
-                    src="/assets/images/service/service-solor - Copy.jpg"
-                    alt=""
+                  <Image
+                    src="/assets/images/service/service-solar.png"
+                    alt="Solar Installations"
+                    width={400}
+                    height={300}
+                    style={{ width: "100%", height: "auto" }}
                   />
                 </figure>
                 <div className="content-box">

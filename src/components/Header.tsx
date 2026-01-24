@@ -1,6 +1,7 @@
 "use client";
 import React, { useEffect, useRef, useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import MobileMenu from "@/app/home/components/MobileMenu";
 
 const Header = () => {
@@ -59,7 +60,13 @@ const Header = () => {
                   <div className="flex logo-box h-full fixed">
                     <Link href="/home" scroll={false}>
                       <figure className="flex h-full logo">
-                        <img src="/assets/images/rwenaa-logo.png" alt="" />
+                        <Image
+                          src="/assets/images/rwenaa-logo.png"
+                          alt="Renewaa Logo"
+                          width={150}
+                          height={50}
+                          className="h-full w-auto object-contain"
+                        />
                       </figure>
                     </Link>
                   </div>
@@ -163,7 +170,13 @@ const Header = () => {
                   <div className="flex logo-box h-full fixed">
                     <Link href="/home" scroll={false}>
                       <figure className="flex h-full logo">
-                        <img src="/assets/images/rwenaa-logo.png" alt="" />
+                        <Image
+                          src="/assets/images/rwenaa-logo.png"
+                          alt="Renewaa Logo"
+                          width={150}
+                          height={50}
+                          className="h-full w-auto object-contain"
+                        />
                       </figure>
                     </Link>
                   </div>
