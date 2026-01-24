@@ -227,10 +227,13 @@ export default function Projects() {
                 <h4 className="text-white text-center font-bold mt-3">
                   {project.title}
                 </h4>
-                <Link href={`/project/${project.id}`} scroll={false}>
-                  <button className="bg-[#0084EC] rounded-xl px-4 py-2 mt-3">
-                    <h6 className="text-white font-bold">See More...</h6>
-                  </button>
+                <Link
+                  href={`/project/${project.id}`}
+                  scroll={false}
+                  className="bg-[#0084EC] rounded-xl px-4 py-2 mt-3 inline-block hover:bg-blue-600 transition-colors"
+                  aria-label={`See more about ${project.title}`}
+                >
+                  <span className="text-white font-bold">See More...</span>
                 </Link>
               </div>
             </div>
