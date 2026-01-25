@@ -9,3 +9,7 @@
 ## 2026-10-24 - Accessibility for Icon-Driven Forms
 **Learning:** The contact form used icons for visual cues instead of visible text labels, but relied solely on placeholders which are not accessible labels. This rendered the form inaccessible to screen reader users.
 **Action:** When visual labels are omitted for design reasons, always explicitly provide `aria-label` attributes on input fields matching their placeholder text, and ensure decorative icons are hidden with `aria-hidden="true"`.
+
+## 2026-10-25 - Inconsistent Accessibility Implementation
+**Learning:** The ContactForm had `aria-label` on some fields but missed it on the primary 'username' and 'email' fields, likely due to oversight or different developers. Partial accessibility can be misleading.
+**Action:** When auditing a component for accessibility, check ALL interactive elements, not just the complex ones.

@@ -61,6 +61,7 @@ const ContactForm = () => {
                     name="username"
                     placeholder="Your Name"
                     required={true}
+                    aria-label="Your Name"
                   />
                 </div>
               </div>
@@ -72,6 +73,7 @@ const ContactForm = () => {
                     name="email"
                     placeholder="Email Address"
                     required={true}
+                    aria-label="Email Address"
                   />
                 </div>
               </div>
