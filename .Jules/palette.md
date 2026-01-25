@@ -9,3 +9,7 @@
 ## 2026-10-24 - Accessibility for Icon-Driven Forms
 **Learning:** The contact form used icons for visual cues instead of visible text labels, but relied solely on placeholders which are not accessible labels. This rendered the form inaccessible to screen reader users.
 **Action:** When visual labels are omitted for design reasons, always explicitly provide `aria-label` attributes on input fields matching their placeholder text, and ensure decorative icons are hidden with `aria-hidden="true"`.
+
+## 2026-10-25 - Global CSS Reset Hides Focus Indicators
+**Learning:** The global stylesheet (`style.css`) universally sets `outline: none` and `box-shadow: none` on focus for inputs and buttons without providing a replacement. This creates a significant accessibility barrier for keyboard users.
+**Action:** When implementing or modifying interactive elements, always explicitly re-introduce visible focus states (e.g., using Tailwind's `focus:ring` classes) to override the aggressive global reset.

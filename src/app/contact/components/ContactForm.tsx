@@ -61,6 +61,9 @@ const ContactForm = () => {
                     name="username"
                     placeholder="Your Name"
                     required={true}
+                    aria-label="Your Name"
+                    aria-required="true"
+                    className="focus:ring-2 focus:ring-blue-500 focus:outline-none rounded-sm"
                   />
                 </div>
               </div>
@@ -72,6 +75,9 @@ const ContactForm = () => {
                     name="email"
                     placeholder="Email Address"
                     required={true}
+                    aria-label="Email Address"
+                    aria-required="true"
+                    className="focus:ring-2 focus:ring-blue-500 focus:outline-none rounded-sm"
                   />
                 </div>
               </div>
@@ -84,6 +90,8 @@ const ContactForm = () => {
                     required={true}
                     placeholder="Phone Number"
                     aria-label="Phone Number"
+                    aria-required="true"
+                    className="focus:ring-2 focus:ring-blue-500 focus:outline-none rounded-sm"
                   />
                 </div>
               </div>
@@ -95,6 +103,7 @@ const ContactForm = () => {
                     name="subject"
                     placeholder="Company"
                     aria-label="Company"
+                    className="focus:ring-2 focus:ring-blue-500 focus:outline-none rounded-sm"
                   />
                 </div>
               </div>
@@ -106,13 +115,14 @@ const ContactForm = () => {
                     placeholder="Your Message..."
                     aria-label="Your Message"
                     defaultValue={""}
+                    className="focus:ring-2 focus:ring-blue-500 focus:outline-none rounded-sm"
                   />
                 </div>
               </div>
               <div className="col-lg-12 col-md-12 col-sm-12 column">
                 <div className="message-btn">
                   <button
-                    className="theme-btn btn-one"
+                    className="theme-btn btn-one focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 focus:outline-none"
                     type="submit"
                     name="submit-form"
                     disabled={isLoading}
