@@ -14,6 +14,9 @@
 **Learning:** The ContactForm had `aria-label` on some fields but missed it on the primary 'username' and 'email' fields, likely due to oversight or different developers. Partial accessibility can be misleading.
 **Action:** When auditing a component for accessibility, check ALL interactive elements, not just the complex ones.
 
+## 2026-10-26 - Accessibility for Interactive Project Cards
+**Learning:** The project cards in `Projects.tsx` used icon-only links for "View Zoom" and "View Details" actions without any accessible labels, making them invisible to screen readers.
+**Action:** Always ensure icon-only interactive elements (links/buttons) have an `aria-label` describing the action (e.g., "View larger image", "View project details"), and apply `aria-hidden="true"` to the decorative icon inside.
 ## 2026-10-26 - Global Loader Interference with Testing
 **Learning:** The global `Loader` component (in `src/components/Loader.tsx`) creates an overlay that persists for 3 seconds, which can cause Playwright visibility assertions to fail or screenshots to capture the loader instead of the UI.
 **Action:** When writing integration tests or verification scripts, explicitly wait for the `.loader-wrap` element to be hidden (e.g., `page.locator(".loader-wrap").wait_for(state="hidden", timeout=10000)`) before performing assertions or taking screenshots.

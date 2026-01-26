@@ -133,8 +133,9 @@ const Projects = () => {
                           href={project.linkImage}
                           className="lightbox-image"
                           data-fancybox="gallery"
+                          aria-label="View larger image"
                         >
-                          <i className="flaticon-zooming" />
+                          <i className="flaticon-zooming" aria-hidden="true" />
                         </Link>
                       </div>
                       <div className="inner">
@@ -145,8 +146,15 @@ const Projects = () => {
                           </Link>
                         </h5>
                         <div className="link">
-                          <Link href="#" scroll={false}>
-                            <i className="flaticon-right-arrow" />
+                          <Link
+                            href="/projects"
+                            scroll={false}
+                            aria-label="View project details"
+                          >
+                            <i
+                              className="flaticon-right-arrow"
+                              aria-hidden="true"
+                            />
                           </Link>
                         </div>
                       </div>
