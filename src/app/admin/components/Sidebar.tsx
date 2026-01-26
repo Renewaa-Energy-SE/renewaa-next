@@ -21,6 +21,9 @@ const Sidebar = () => {
             left: isOpen ? "95%" : "50%",
             transform: "translateX(-50%) translateY(-50%)",
           }}
+          aria-label={isOpen ? "Collapse sidebar" : "Expand sidebar"}
+          aria-expanded={isOpen}
+          title={isOpen ? "Collapse sidebar" : "Expand sidebar"}
         >
           {isOpen ? (
             <FaChevronCircleLeft color="#FFFFFF" size={30} />
