@@ -36,20 +36,23 @@ const Dashboard: React.FC = () => {
         </button>
       </div>
       <div className="flex flex-row items-center justify-center space-x-4 h-5/6">
-        <Link href="/admin/addproject">
-          <button className="px-8 py-5 text-5xl text-white bg-blue-500 rounded hover:bg-blue-600 focus:outline-none">
-            Add Project
-          </button>
+        <Link
+          href="/admin/addproject"
+          className="px-8 py-5 text-5xl text-white bg-blue-500 rounded hover:bg-blue-600 focus:outline-none"
+        >
+          Add Project
         </Link>
-        <Link href="/admin/addadmin">
-          <button className="px-8 py-5 text-5xl text-white bg-green-500 rounded hover:bg-green-600 focus:outline-none">
-            Add Admin
-          </button>
+        <Link
+          href="/admin/addadmin"
+          className="px-8 py-5 text-5xl text-white bg-green-500 rounded hover:bg-green-600 focus:outline-none"
+        >
+          Add Admin
         </Link>
-        <Link href="/admin/customizeImages">
-          <button className="px-8 py-5 text-5xl text-white bg-green-500 rounded hover:bg-green-600 focus:outline-none">
-            Customize Images
-          </button>
+        <Link
+          href="/admin/customizeImages"
+          className="px-8 py-5 text-5xl text-white bg-green-500 rounded hover:bg-green-600 focus:outline-none"
+        >
+          Customize Images
         </Link>
       </div>
     </div>
