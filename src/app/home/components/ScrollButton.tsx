@@ -44,7 +44,7 @@ const ScrollButton = () => {
       data-target="html"
       aria-label="Scroll to top"
     >
-      <i className="flaticon-up-arrow" />
+      <i className="flaticon-up-arrow" aria-hidden="true" />
     </button>
   );
 };

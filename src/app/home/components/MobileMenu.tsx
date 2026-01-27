@@ -23,7 +23,7 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ menuVisible, toggleMenu }) => {
           type="button"
           aria-label="Close navigation menu"
         >
-          <i className="fas fa-times" />
+          <i className="fas fa-times" aria-hidden="true" />
         </button>
         {/* <Scrollbar elementRef={myRef} style={{ height: "100%" }}> */}
         <nav className="flex flex-col menu-box justify-between">
@@ -32,7 +32,6 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ menuVisible, toggleMenu }) => {
               <img
                 src="/assets/images/rwenaa-logo.png"
                 alt="Renewaa Logo"
-                title=""
               />
             </Link>
           </div>
@@ -98,27 +97,27 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ menuVisible, toggleMenu }) => {
             <ul className="clearfix">
               <li>
                 <Link href="/home" scroll={false} aria-label="Twitter">
-                  <span className="fab fa-twitter" />
+                  <span className="fab fa-twitter" aria-hidden="true" />
                 </Link>
               </li>
               <li>
                 <Link href="/home" scroll={false} aria-label="Facebook">
-                  <span className="fab fa-facebook-square" />
+                  <span className="fab fa-facebook-square" aria-hidden="true" />
                 </Link>
               </li>
               <li>
                 <Link href="/home" scroll={false} aria-label="Pinterest">
-                  <span className="fab fa-pinterest-p" />
+                  <span className="fab fa-pinterest-p" aria-hidden="true" />
                 </Link>
               </li>
               <li>
                 <Link href="/home" scroll={false} aria-label="Instagram">
-                  <span className="fab fa-instagram" />
+                  <span className="fab fa-instagram" aria-hidden="true" />
                 </Link>
               </li>
               <li>
                 <Link href="/home" scroll={false} aria-label="YouTube">
-                  <span className="fab fa-youtube" />
+                  <span className="fab fa-youtube" aria-hidden="true" />
                 </Link>
               </li>
             </ul>
