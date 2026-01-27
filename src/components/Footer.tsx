@@ -38,7 +38,7 @@ const Footer = () => {
                   </Link>
                 </figure>
                 <div className="support-box">
-                  <i className="far fa-envelope-open" />
+                  <i className="far fa-envelope-open" aria-hidden="true" />
                   <h6>Free Consult</h6>
                   <Link href="mailto:info@renewaa.com">info@renewaa.com</Link>
                 </div>

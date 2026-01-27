@@ -77,9 +77,9 @@ const Header = () => {
                     type="button"
                     aria-label="Toggle navigation menu"
                   >
-                    <i className="icon-bar" />
-                    <i className="icon-bar" />
-                    <i className="icon-bar" />
+                    <i className="icon-bar" aria-hidden="true" />
+                    <i className="icon-bar" aria-hidden="true" />
+                    <i className="icon-bar" aria-hidden="true" />
                   </button>
 
                   <nav
@@ -131,17 +131,17 @@ const Header = () => {
               <div className="flex w-2/5 justify-end nav-right pull-right clearfix">
                 <div className="support-box">
                   <h5>
-                    <i className="fas fa-headphones" />
+                    <i className="fas fa-headphones" aria-hidden="true" />
                     <span className="font-['Lexend']">(074) 3020154 </span>
                   </h5>
                   <ul className="info-box">
                     <li>
-                      <i className="far fa-map" />
+                      <i className="far fa-map" aria-hidden="true" />
                       <h6>Address</h6>
                       <span className="font-['Lexend']">L2-14, Realty Plaza, Ja-Ela, Sri Lanka</span>
                     </li>
                     <li>
-                      <i className="far fa-envelope-open" />
+                      <i className="far fa-envelope-open" aria-hidden="true" />
                       <h6>Email</h6>
                       <span className="font-['Lexend']">
                         <a href="mailto:info@renewaa.com">
@@ -151,7 +151,7 @@ const Header = () => {
                       </span>
                     </li>
                     <li>
-                      <i className="far fa-clock" />
+                      <i className="far fa-clock" aria-hidden="true" />
                       <h6>Office Hours</h6>
                       <span className="font-['Lexend']">Mon - Sat: 9.00am to 6.30pm</span>
                     </li>
@@ -187,9 +187,9 @@ const Header = () => {
                     type="button"
                     aria-label="Toggle navigation menu"
                   >
-                    <i className="icon-bar" />
-                    <i className="icon-bar" />
-                    <i className="icon-bar" />
+                    <i className="icon-bar" aria-hidden="true" />
+                    <i className="icon-bar" aria-hidden="true" />
+                    <i className="icon-bar" aria-hidden="true" />
                   </button>
 
                   <nav
@@ -242,17 +242,17 @@ const Header = () => {
               <div className="flex w-2/5 justify-end nav-right pull-right clearfix">
                 <div className="support-box">
                   <h5>
-                    <i className="fas fa-headphones" />
+                    <i className="fas fa-headphones" aria-hidden="true" />
                     <span className="font-['Lexend']">(074) 3020154 </span>
                   </h5>
                   <ul className="info-box">
                     <li>
-                      <i className="far fa-map" />
+                      <i className="far fa-map" aria-hidden="true" />
                       <h6>Address</h6>
                       <span className="font-['Lexend']">L2-14, Realty Plaza, Ja-Ela, Sri Lanka</span>
                     </li>
                     <li>
-                      <i className="far fa-envelope-open" />
+                      <i className="far fa-envelope-open" aria-hidden="true" />
                       <h6>Email</h6>
                       <span className="font-['Lexend']">
                         <a href="mailto:info@renewaa.com">
@@ -262,7 +262,7 @@ const Header = () => {
                       </span>
                     </li>
                     <li>
-                      <i className="far fa-clock" />
+                      <i className="far fa-clock" aria-hidden="true" />
                       <h6>Office Hours</h6>
                       <span className="font-['Lexend']">Mon - Sat: 9.00am to 6.30pm</span>
                     </li>
