@@ -24,3 +24,7 @@
 ## 2026-10-26 - Invalid Nesting of Interactive Elements
 **Learning:** The Admin Dashboard contained `<button>` elements nested inside `<Link>` components. This causes invalid HTML and hydration errors in React/Next.js, although the build process may not fail. This pattern degrades accessibility and predictability.
 **Action:** Refactor nested interactive elements by removing the inner `<button>` and applying the styling classes directly to the `<Link>` component.
+
+## 2026-10-27 - Admin Form Validation Gaps
+**Learning:** While the Login form had proper `ErrorMessage` components and `id` attributes, the AddProject admin form lacked visible validation feedback and accessible labels, creating an inconsistent and less accessible experience for admins.
+**Action:** When working on admin forms using Formik, always ensure `ErrorMessage` components are present for all fields and that inputs have `id` attributes matching their labels, consistent with the auth flow.
