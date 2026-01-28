@@ -4,7 +4,6 @@ import React, { useEffect, useRef } from "react";
 
 const Loader = () => {
   const loaderWrapRef = useRef<HTMLDivElement | null>(null);
-  const preloaderCloseRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
     const handlePreloader = () => {
@@ -17,36 +16,26 @@ const Loader = () => {
       }
     };
 
-    const handlePreloaderClose = () => {
-      if (preloaderCloseRef.current) {
-        preloaderCloseRef.current.addEventListener("click", () => {
-          if (loaderWrapRef.current) {
-            loaderWrapRef.current.style.display = "none";
-          }
-        });
-      }
-    };
-
     handlePreloader();
-    handlePreloaderClose();
-
-    // Clean up event listener on unmount
-    return () => {
-      if (preloaderCloseRef.current) {
-        preloaderCloseRef.current.removeEventListener(
-          "click",
-          handlePreloaderClose
-        );
-      }
-    };
   }, []);
+
+  const handleClose = () => {
+    if (loaderWrapRef.current) {
+      loaderWrapRef.current.style.display = "none";
+    }
+  };
 
   return (
     <div className="loader-wrap" ref={loaderWrapRef}>
       <div className="preloader">
-        <div className="preloader-close" ref={preloaderCloseRef}>
+        <button
+          className="preloader-close"
+          onClick={handleClose}
+          aria-label="Close preloader"
+          type="button"
+        >
           x
-        </div>
+        </button>
         <div
           id="handle-preloader"
           className="handle-preloader bg-[#1e2434] flex h-screen w-full items-center justify-center"

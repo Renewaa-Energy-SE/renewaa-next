@@ -24,3 +24,7 @@
 ## 2026-10-26 - Invalid Nesting of Interactive Elements
 **Learning:** The Admin Dashboard contained `<button>` elements nested inside `<Link>` components. This causes invalid HTML and hydration errors in React/Next.js, although the build process may not fail. This pattern degrades accessibility and predictability.
 **Action:** Refactor nested interactive elements by removing the inner `<button>` and applying the styling classes directly to the `<Link>` component.
+
+## 2026-10-27 - Verifying Auto-Hiding Overlays
+**Learning:** The global `Loader` component auto-hides after 3 seconds, which can race with Playwright verification scripts. Checking for visibility of the overlay container itself (`.loader-wrap`) failed because it might be considered hidden by Playwright if it has no content flow, even if fixed-position children are visible.
+**Action:** When verifying overlays, target specific interactive elements (like the Close button) or visible content (`.preloader`) rather than wrapper containers, and ensure the script runs immediately or handles the timeout state gracefully.
