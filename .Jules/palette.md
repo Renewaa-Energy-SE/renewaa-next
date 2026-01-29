@@ -24,3 +24,7 @@
 ## 2026-10-26 - Invalid Nesting of Interactive Elements
 **Learning:** The Admin Dashboard contained `<button>` elements nested inside `<Link>` components. This causes invalid HTML and hydration errors in React/Next.js, although the build process may not fail. This pattern degrades accessibility and predictability.
 **Action:** Refactor nested interactive elements by removing the inner `<button>` and applying the styling classes directly to the `<Link>` component.
+
+## 2026-10-27 - Formik Validation Visibility
+**Learning:** The Add Project form was using Formik and Yup but provided no visual feedback for validation errors, leading to a poor user experience where the form would simply "do nothing" on invalid submit. Custom components like `FileUpload` were also not triggering `touched` state.
+**Action:** Always add explicit `<ErrorMessage />` components for every Formik field. For custom inputs (like Dropzone), ensure `setFieldTouched` is called in the `onChange/onDrop` handler to trigger validation immediately.
