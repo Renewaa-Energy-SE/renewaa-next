@@ -17,6 +17,7 @@
 ## 2026-10-26 - Accessibility for Interactive Project Cards
 **Learning:** The project cards in `Projects.tsx` used icon-only links for "View Zoom" and "View Details" actions without any accessible labels, making them invisible to screen readers.
 **Action:** Always ensure icon-only interactive elements (links/buttons) have an `aria-label` describing the action (e.g., "View larger image", "View project details"), and apply `aria-hidden="true"` to the decorative icon inside.
+
 ## 2026-10-26 - Global Loader Interference with Testing
 **Learning:** The global `Loader` component (in `src/components/Loader.tsx`) creates an overlay that persists for 3 seconds, which can cause Playwright visibility assertions to fail or screenshots to capture the loader instead of the UI.
 **Action:** When writing integration tests or verification scripts, explicitly wait for the `.loader-wrap` element to be hidden (e.g., `page.locator(".loader-wrap").wait_for(state="hidden", timeout=10000)`) before performing assertions or taking screenshots.
@@ -24,3 +25,7 @@
 ## 2026-10-26 - Invalid Nesting of Interactive Elements
 **Learning:** The Admin Dashboard contained `<button>` elements nested inside `<Link>` components. This causes invalid HTML and hydration errors in React/Next.js, although the build process may not fail. This pattern degrades accessibility and predictability.
 **Action:** Refactor nested interactive elements by removing the inner `<button>` and applying the styling classes directly to the `<Link>` component.
+
+## 2026-10-27 - Accessibility in Hero/Banner Components
+**Learning:** The main banner used an icon-only button for the video link, which was completely invisible to screen readers. This is a high-impact area as it's the first thing users encounter.
+**Action:** Always ensure hero/banner call-to-action buttons (especially icon-only ones like play buttons) have descriptive `aria-label` attributes that include the context (e.g., "Watch video about [Topic]").
