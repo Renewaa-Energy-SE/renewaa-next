@@ -1,6 +1,6 @@
 "use client";
 import React, { useState } from "react";
-import { Formik, Field, Form, FieldArray, FormikProps } from "formik";
+import { Formik, Field, Form, FieldArray, FormikProps, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import { DropEvent, FileRejection, useDropzone } from "react-dropzone";
 import Sidebar from "../components/Sidebar";
@@ -137,8 +137,14 @@ const AddProject = () => {
                   </label>
                   <Field
                     name="title"
+                    id="title"
                     type="text"
                     className="p-2 border rounded-md"
+                  />
+                  <ErrorMessage
+                    name="title"
+                    component="div"
+                    className="text-red-500 text-sm mt-1"
                   />
                 </div>
 
@@ -146,24 +152,34 @@ const AddProject = () => {
                   {({ push, remove }) => (
                     <div className="flex flex-col space-y-1">
                       <label className="text-sm font-medium">Paragraphs</label>
+                      <ErrorMessage
+                        name="contents"
+                        component="div"
+                        className="text-red-500 text-sm mt-1"
+                      />
                       {values.contents.map((content, index) => (
-                        <div
-                          key={index}
-                          className="flex items-center space-x-2"
-                        >
-                          <Field
+                        <div key={index} className="flex flex-col">
+                          <div className="flex items-center space-x-2">
+                            <Field
+                              name={`contents.${index}`}
+                              className="flex-grow p-2 border rounded-md h-[10vh]"
+                              as="textarea"
+                              aria-label={`Paragraph ${index + 1}`}
+                            />
+                            <button
+                              type="button"
+                              onClick={() => remove(index)}
+                              className="p-1 bg-red-500 text-white rounded-md"
+                              aria-label={`Remove paragraph ${index + 1}`}
+                            >
+                              Remove
+                            </button>
+                          </div>
+                          <ErrorMessage
                             name={`contents.${index}`}
-                            className="flex-grow p-2 border rounded-md h-[10vh]"
-                            as="textarea"
+                            component="div"
+                            className="text-red-500 text-sm mt-1"
                           />
-                          <button
-                            type="button"
-                            onClick={() => remove(index)}
-                            className="p-1 bg-red-500 text-white rounded-md"
-                            aria-label={`Remove paragraph ${index + 1}`}
-                          >
-                            Remove
-                          </button>
                         </div>
                       ))}
                       <button
@@ -180,6 +196,11 @@ const AddProject = () => {
                 <div className="flex flex-col space-y-1">
                   <label className="text-sm font-medium">Main Image</label>
                   <FileUpload setFieldValue={setFieldValue} name="mainImage" />
+                  <ErrorMessage
+                    name="mainImage"
+                    component="div"
+                    className="text-red-500 text-sm mt-1"
+                  />
                   {values.mainImage && (
                     <>
                       <img
@@ -194,6 +215,11 @@ const AddProject = () => {
                 <div className="flex flex-col space-y-1">
                   <label className="text-sm font-medium">Images</label>
                   <FileUpload setFieldValue={setFieldValue} name="images" />
+                  <ErrorMessage
+                    name="images"
+                    component="div"
+                    className="text-red-500 text-sm mt-1"
+                  />
                   <div className="flex flex-wrap justify-start">
                     {values.images &&
                       values.images.map((image, index) => (
