@@ -25,6 +25,11 @@
 **Learning:** The Admin Dashboard contained `<button>` elements nested inside `<Link>` components. This causes invalid HTML and hydration errors in React/Next.js, although the build process may not fail. This pattern degrades accessibility and predictability.
 **Action:** Refactor nested interactive elements by removing the inner `<button>` and applying the styling classes directly to the `<Link>` component.
 
+## 2026-10-27 - Decorative Images & Force-Hiding Loaders
+**Learning:** While waiting for elements is standard, global loaders with fixed timeouts (e.g., 3s) are better handled in verification scripts by explicitly force-hiding them via DOM manipulation (`display: none`) to speed up tests and reduce flake.
+**Action:** Use `page.evaluate("document.querySelector('.loader-wrap').style.display = 'none'")` in Playwright scripts when dealing with purely visual blocking overlays.
+**Learning:** Decorative images (lines, separators) often lack `alt` attributes entirely, which defaults to reading the filename in some screen readers.
+**Action:** Explicitly set `alt=""` for decorative images to remove them from the accessibility tree.
 ## 2026-10-27 - Verification Script Strictness
 **Learning:** When using Playwright's `get_by_label("Text")`, it can match elements with `aria-label`s that contain that text (e.g., "Paragraph 1" matched both "Paragraph 1" textarea and "Remove paragraph 1" button).
 **Action:** Use `exact=True` or combine with `get_by_role()` (e.g., `page.get_by_role("textbox", name="Paragraph 1", exact=True)`) to disambiguate similar labels in verification scripts.
