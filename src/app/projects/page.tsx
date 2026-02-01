@@ -224,7 +224,7 @@ export default function Projects() {
                   index % 2 === 0 ? "px-0 pr-10 py-0" : "px-0 pl-10 py-0"
                 }`}
               >
-                <BsCheckCircle size={50} color="#0084EC" />
+                <BsCheckCircle size={50} color="#0084EC" aria-hidden="true" />
                 <h4 className="text-white text-center font-bold mt-3">
                   {project.title}
                 </h4>
@@ -275,6 +275,27 @@ export default function Projects() {
             />
           </div>
           <div className="flex flex-wrap static max-w-[1024px] mx-auto bg-gradient-to-tr from-[#1E2434] to-white p-4">
+            <img
+              src={collage[0]}
+              alt=""
+              className="w-1/2 h-auto pr-4 pb-4"
+            />
+            <img
+              src={collage[1]}
+              alt=""
+              className="w-1/2 h-auto pb-4"
+            />
+            <img
+              src={collage[2]}
+              alt=""
+              className="w-3/5 h-auto pr-4"
+            />
+            <div className="w-2/5 flex flex-col">
+              <img
+                src={collage[3]}
+                alt=""
+                className="w-full h-1/2 pb-4"
+              />
             <img src={collage[0]} alt="" className="w-1/2 h-auto pr-4 pb-4" />
             <img src={collage[1]} alt="" className="w-1/2 h-auto pb-4" />
             <img src={collage[2]} alt="" className="w-3/5 h-auto pr-4" />
