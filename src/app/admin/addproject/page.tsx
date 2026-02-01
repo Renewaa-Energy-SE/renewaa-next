@@ -159,6 +159,10 @@ const AddProject = () => {
                       />
                       {values.contents.map((content, index) => (
                         <div key={index} className="flex flex-col space-y-1">
+                        <div
+                          key={index}
+                          className="flex flex-col w-full space-y-1 mb-2"
+                        >
                           <div className="flex items-center space-x-2">
                             <Field
                               name={`contents.${index}`}
@@ -189,6 +193,11 @@ const AddProject = () => {
                       >
                         Add Content
                       </button>
+                      <ErrorMessage
+                        name="contents"
+                        component="div"
+                        className="text-red-500 text-sm mt-1"
+                      />
                     </div>
                   )}
                 </FieldArray>
