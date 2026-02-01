@@ -29,3 +29,11 @@
 ## 2026-10-27 - Accessibility in Hero/Banner Components
 **Learning:** The main banner used an icon-only button for the video link, which was completely invisible to screen readers. This is a high-impact area as it's the first thing users encounter.
 **Action:** Always ensure hero/banner call-to-action buttons (especially icon-only ones like play buttons) have descriptive `aria-label` attributes that include the context (e.g., "Watch video about [Topic]").
+## 2026-10-27 - Decorative Images & Force-Hiding Loaders
+**Learning:** While waiting for elements is standard, global loaders with fixed timeouts (e.g., 3s) are better handled in verification scripts by explicitly force-hiding them via DOM manipulation (`display: none`) to speed up tests and reduce flake.
+**Action:** Use `page.evaluate("document.querySelector('.loader-wrap').style.display = 'none'")` in Playwright scripts when dealing with purely visual blocking overlays.
+**Learning:** Decorative images (lines, separators) often lack `alt` attributes entirely, which defaults to reading the filename in some screen readers.
+**Action:** Explicitly set `alt=""` for decorative images to remove them from the accessibility tree.
+## 2026-10-27 - Verification Script Strictness
+**Learning:** When using Playwright's `get_by_label("Text")`, it can match elements with `aria-label`s that contain that text (e.g., "Paragraph 1" matched both "Paragraph 1" textarea and "Remove paragraph 1" button).
+**Action:** Use `exact=True` or combine with `get_by_role()` (e.g., `page.get_by_role("textbox", name="Paragraph 1", exact=True)`) to disambiguate similar labels in verification scripts.
