@@ -24,3 +24,7 @@
 ## 2026-10-26 - Invalid Nesting of Interactive Elements
 **Learning:** The Admin Dashboard contained `<button>` elements nested inside `<Link>` components. This causes invalid HTML and hydration errors in React/Next.js, although the build process may not fail. This pattern degrades accessibility and predictability.
 **Action:** Refactor nested interactive elements by removing the inner `<button>` and applying the styling classes directly to the `<Link>` component.
+
+## 2026-10-26 - FieldArray Error Layouts
+**Learning:** When implementing `ErrorMessage` components in `FieldArray` lists (e.g., `AddProject` page), the container layout typically requires switching to `flex-col` to properly display the error text below the input field.
+**Action:** Default to `flex-col` containers for dynamic list items that require validation feedback, or use absolute positioning if vertical space is constrained.
