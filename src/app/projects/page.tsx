@@ -159,7 +159,7 @@ export default function Projects() {
               </div>
               <ul className="bread-crumb clearfix pull-right">
                 <li>
-                  <a href="/home">Home</a>
+                  <Link href="/home">Home</Link>
                 </li>
                 <li>About</li>
                 <li>Company</li>
@@ -296,6 +296,11 @@ export default function Projects() {
                 alt=""
                 className="w-full h-1/2 pb-4"
               />
+            <img src={collage[0]} alt="" className="w-1/2 h-auto pr-4 pb-4" />
+            <img src={collage[1]} alt="" className="w-1/2 h-auto pb-4" />
+            <img src={collage[2]} alt="" className="w-3/5 h-auto pr-4" />
+            <div className="w-2/5 flex flex-col">
+              <img src={collage[3]} alt="" className="w-full h-1/2 pb-4" />
               <img src={collage[4]} alt="" className="w-full h-1/2" />
             </div>
           </div>
