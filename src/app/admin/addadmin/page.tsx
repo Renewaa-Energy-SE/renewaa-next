@@ -1,8 +1,9 @@
 "use client";
 
-import { useState } from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
+import { toast } from "react-toastify";
+import { FaSpinner } from "react-icons/fa";
 import Sidebar from "../components/Sidebar";
 
 interface FormValues {
@@ -18,8 +19,6 @@ const validationSchema = Yup.object().shape({
 });
 
 const AddAdmin = () => {
-  const [success, setSuccess] = useState(false);
-
   const handleSubmit = async (
     values: FormValues,
     { resetForm }: { resetForm: () => void }
@@ -35,12 +34,13 @@ const AddAdmin = () => {
 
       if (response.ok) {
         resetForm();
-        setSuccess(true);
+        toast.success("Admin added successfully!");
       } else {
         throw new Error("Failed to add admin");
       }
     } catch (error) {
       console.error(error);
+      toast.error("Failed to add admin. Please try again.");
     }
   };
 
@@ -50,9 +50,6 @@ const AddAdmin = () => {
       <div className="w-full flex justify-center items-center">
         <div className="bg-white p-8 rounded-lg shadow-md max-w-md w-full">
           <h2 className="text-2xl font-bold mb-6">Add Admin</h2>
-          {success ? (
-            <p className="text-green-500 mb-4">Admin added successfully!</p>
-          ) : null}
           <Formik
             initialValues={{
               name: "",
@@ -99,10 +96,18 @@ const AddAdmin = () => {
 
                 <button
                   type="submit"
-                  className="bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="flex items-center justify-center bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600 transition-colors disabled:opacity-50 disabled:cursor-not-allowed min-w-[120px]"
                   disabled={isSubmitting}
+                  aria-label={isSubmitting ? "Adding admin..." : "Add Admin"}
                 >
-                  {isSubmitting ? "Adding..." : "Add Admin"}
+                  {isSubmitting ? (
+                    <>
+                      <FaSpinner className="animate-spin mr-2" />
+                      Adding...
+                    </>
+                  ) : (
+                    "Add Admin"
+                  )}
                 </button>
               </Form>
             )}

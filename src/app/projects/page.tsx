@@ -296,15 +296,14 @@ export default function Projects() {
                 alt=""
                 className="w-full h-1/2 pb-4"
               />
-            <img src={collage[0]} alt="" className="w-1/2 h-auto pr-4 pb-4" />
-            <img src={collage[1]} alt="" className="w-1/2 h-auto pb-4" />
-            <img src={collage[2]} alt="" className="w-3/5 h-auto pr-4" />
-            <div className="w-2/5 flex flex-col">
-              <img src={collage[3]} alt="" className="w-full h-1/2 pb-4" />
-              <img src={collage[4]} alt="" className="w-full h-1/2" />
+              <img
+                src={collage[4]}
+                alt=""
+                className="w-full h-1/2"
+              />
             </div>
-          </div>
         </div>
+      </div>
       </div>
       <ScrollButton />
     </>

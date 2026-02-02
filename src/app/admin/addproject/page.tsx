@@ -158,7 +158,6 @@ const AddProject = () => {
                         className="text-red-500 text-sm mt-1"
                       />
                       {values.contents.map((content, index) => (
-                        <div key={index} className="flex flex-col space-y-1">
                         <div
                           key={index}
                           className="flex flex-col w-full space-y-1 mb-2"
