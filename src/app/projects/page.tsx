@@ -296,6 +296,11 @@ export default function Projects() {
                 alt=""
                 className="w-full h-1/2 pb-4"
               />
+              <img
+                src={collage[4]}
+                alt=""
+                className="w-full h-1/2"
+              />
               <img src={collage[4]} alt="" className="w-full h-1/2" />
             </div>
           </div>
