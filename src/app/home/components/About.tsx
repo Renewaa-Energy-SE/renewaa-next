@@ -57,8 +57,13 @@ const About = () => {
                         all....
                       </p>
                       <h6>
-                        <i className="flaticon-right-arrow" />
-                        <Link href="/about#visson-statement">Read More</Link>
+                        <i className="flaticon-right-arrow" aria-hidden="true" />
+                        <Link
+                          href="/about#visson-statement"
+                          aria-label="Read more about our vision"
+                        >
+                          Read More
+                        </Link>
                       </h6>
                     </div>
                   </div>
@@ -73,8 +78,13 @@ const About = () => {
                         energy storage solutions. We are committed to...
                       </p>
                       <h6>
-                        <i className="flaticon-right-arrow" />
-                        <Link href="/#misson-statement">Read More</Link>
+                        <i className="flaticon-right-arrow" aria-hidden="true" />
+                        <Link
+                          href="/#misson-statement"
+                          aria-label="Read more about our mission"
+                        >
+                          Read More
+                        </Link>
                       </h6>
                     </div>
                   </div>
