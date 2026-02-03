@@ -39,3 +39,6 @@
 ## 2026-10-27 - Global Toast Configuration
 **Learning:** The project imported `react-toastify` in individual components but failed to include `ToastContainer` and its CSS in the global layout. This resulted in silent failures where toasts were triggered in code but never rendered.
 **Action:** Always verify that global providers/containers (like `ToastContainer`, `ThemeProvider`) are initialized in the root `layout.tsx` or `app.tsx` when adding them to a project.
+## 2026-10-27 - Fixing Pre-existing Syntax Errors for Verification
+**Learning:** The repository contained pre-existing syntax errors in `src/app/admin/addproject/page.tsx` and `src/app/projects/page.tsx` that prevented `pnpm build` from running.
+**Action:** When working on a task that requires build verification, it is sometimes necessary to fix unrelated syntax errors in the codebase to ensure the build process completes successfully.
