@@ -40,6 +40,7 @@ const AddAdmin = () => {
       }
     } catch (error) {
       console.error(error);
+      toast.error("Failed to add admin. Please try again.");
       toast.error("An error occurred. Please try again.");
     }
   };
@@ -96,6 +97,9 @@ const AddAdmin = () => {
 
                 <button
                   type="submit"
+                  className="flex items-center justify-center bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600 transition-colors disabled:opacity-50 disabled:cursor-not-allowed min-w-[120px]"
+                  disabled={isSubmitting}
+                  aria-label={isSubmitting ? "Adding admin..." : "Add Admin"}
                   className="bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600 transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center"
                   disabled={isSubmitting}
                   aria-label="Add new admin"

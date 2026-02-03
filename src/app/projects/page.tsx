@@ -303,8 +303,8 @@ export default function Projects() {
               />
               <img src={collage[4]} alt="" className="w-full h-1/2" />
             </div>
-          </div>
         </div>
+      </div>
       </div>
       <ScrollButton />
     </>
