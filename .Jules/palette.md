@@ -37,3 +37,7 @@
 ## 2026-10-27 - Verification Script Strictness
 **Learning:** When using Playwright's `get_by_label("Text")`, it can match elements with `aria-label`s that contain that text (e.g., "Paragraph 1" matched both "Paragraph 1" textarea and "Remove paragraph 1" button).
 **Action:** Use `exact=True` or combine with `get_by_role()` (e.g., `page.get_by_role("textbox", name="Paragraph 1", exact=True)`) to disambiguate similar labels in verification scripts.
+
+## 2026-10-27 - Fixing Pre-existing Syntax Errors for Verification
+**Learning:** The repository contained pre-existing syntax errors in `src/app/admin/addproject/page.tsx` and `src/app/projects/page.tsx` that prevented `pnpm build` from running.
+**Action:** When working on a task that requires build verification, it is sometimes necessary to fix unrelated syntax errors in the codebase to ensure the build process completes successfully.
