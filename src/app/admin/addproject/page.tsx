@@ -184,7 +184,6 @@ const AddProject = () => {
                             className="text-red-500 text-sm mt-1"
                           />
                         </div>
-                        </div>
                       ))}
                       <button
                         type="button"

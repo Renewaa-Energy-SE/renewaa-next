@@ -76,6 +76,8 @@ const Header = () => {
                     onClick={toggleMenu}
                     type="button"
                     aria-label="Toggle navigation menu"
+                    aria-expanded={menuVisible}
+                    aria-controls="mobile-menu"
                   >
                     <i className="icon-bar" aria-hidden="true" />
                     <i className="icon-bar" aria-hidden="true" />
@@ -186,6 +188,8 @@ const Header = () => {
                     onClick={toggleMenu}
                     type="button"
                     aria-label="Toggle navigation menu"
+                    aria-expanded={menuVisible}
+                    aria-controls="mobile-menu"
                   >
                     <i className="icon-bar" aria-hidden="true" />
                     <i className="icon-bar" aria-hidden="true" />
