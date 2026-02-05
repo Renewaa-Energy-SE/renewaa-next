@@ -13,20 +13,8 @@ You can learn more, including how to opt-out if you'd not like to participate in
 https://nextjs.org/telemetry
 
 ⚠ The "middleware" file convention is deprecated. Please use "proxy" instead. Learn more: https://nextjs.org/docs/messages/middleware-to-proxy
-✓ Ready in 1227ms
-○ Compiling /home ...
- GET /home 200 in 5.4s (compile: 4.9s, render: 550ms)
- GET /assets/images/gallery/projects-insight.png 404 in 2.3s (compile: 1407ms, render: 883ms)
- GET /assets/images/gallery/projects-energy.png 404 in 2.3s (compile: 1547ms, render: 777ms)
- GET /assets/images/gallery/projects-research.png 404 in 2.3s (compile: 1591ms, render: 730ms)
- GET /assets/images/service/service-tech.png 404 in 2.4s (compile: 1710ms, render: 674ms)
- GET /assets/images/service/service-maintenance.png 404 in 2.4s (compile: 1760ms, render: 612ms)
- GET /assets/images/service/service-solar.png 404 in 2.4s (compile: 1779ms, render: 596ms)
-⨯ The requested resource isn't a valid image for /assets/images/gallery/projects-insight.png received null
-⨯ The requested resource isn't a valid image for /assets/images/gallery/projects-energy.png received null
-⨯ The requested resource isn't a valid image for /assets/images/gallery/projects-research.png received null
-⨯ The requested resource isn't a valid image for /assets/images/service/service-tech.png received null
-⨯ The requested resource isn't a valid image for /assets/images/service/service-maintenance.png received null
-⨯ The requested resource isn't a valid image for /assets/images/service/service-solar.png received null
- GET /assets/images/gallery/projects-innovation.png 404 in 83ms (compile: 6ms, render: 78ms)
-⨯ The requested resource isn't a valid image for /assets/images/gallery/projects-innovation.png received null
+✓ Ready in 1202ms
+○ Compiling /_not-found/page ...
+ GET /this-page-does-not-exist 404 in 8.3s (compile: 7.5s, render: 783ms)
+ GET /this-page-does-not-exist 404 in 107ms (compile: 9ms, render: 98ms)
+[?25h
