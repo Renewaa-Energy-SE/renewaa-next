@@ -100,6 +100,7 @@ const AddAdmin = () => {
                   className="flex items-center justify-center bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600 transition-colors disabled:opacity-50 disabled:cursor-not-allowed min-w-[120px]"
                   disabled={isSubmitting}
                   aria-label={isSubmitting ? "Adding admin..." : "Add new admin"}
+                  aria-label={isSubmitting ? "Adding admin..." : "Add Admin"}
                   aria-busy={isSubmitting}
                 >
                   {isSubmitting ? (
