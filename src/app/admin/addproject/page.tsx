@@ -140,6 +140,7 @@ const AddProject = () => {
                   <Field
                     id="title"
                     name="title"
+                    id="title"
                     type="text"
                     className="p-2 border rounded-md"
                   />
@@ -160,6 +161,7 @@ const AddProject = () => {
                         className="text-red-500 text-sm mt-1"
                       />
                       {values.contents.map((content, index) => (
+                        <div key={index} className="flex flex-col">
                         <div
                           key={index}
                           className="flex flex-col w-full space-y-1 mb-2"
@@ -205,6 +207,7 @@ const AddProject = () => {
 
                 <div className="flex flex-col space-y-1">
                   <label className="text-sm font-medium">Main Image</label>
+                  <FileUpload setFieldValue={setFieldValue} name="mainImage" />
                   <FileUpload
                     setFieldValue={setFieldValue}
                     name="mainImage"
