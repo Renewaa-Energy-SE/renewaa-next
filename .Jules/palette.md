@@ -42,3 +42,7 @@
 ## 2026-10-27 - Fixing Pre-existing Syntax Errors for Verification
 **Learning:** The repository contained pre-existing syntax errors in `src/app/admin/addproject/page.tsx` and `src/app/projects/page.tsx` that prevented `pnpm build` from running.
 **Action:** When working on a task that requires build verification, it is sometimes necessary to fix unrelated syntax errors in the codebase to ensure the build process completes successfully.
+
+## 2026-10-28 - Mobile Menu Accessibility State
+**Learning:** The mobile menu implementation relied solely on CSS classes (`.mobile-menu-visible`) for visibility, without communicating state to assistive technologies. The toggle button lacked `aria-expanded` and `aria-controls`, and the menu itself lacked `role="dialog"`.
+**Action:** When implementing custom menus/dialogs, always pair the visual toggle mechanism with `aria-expanded` on the button and `role="dialog"`/`aria-modal="true"` on the container. Ensure the button points to the container via `aria-controls`.
