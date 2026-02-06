@@ -159,7 +159,7 @@ export default function Projects() {
               </div>
               <ul className="bread-crumb clearfix pull-right">
                 <li>
-                  <a href="/home">Home</a>
+                  <Link href="/home">Home</Link>
                 </li>
                 <li>About</li>
                 <li>Company</li>
@@ -207,6 +207,7 @@ export default function Projects() {
                   ></div>
                   <img
                     src={project.mainImageUrl}
+                    alt={project.title}
                     className={`absolute bottom-0 md:right-0 pb-3 px-1 ${
                       index % 2 != 0 ? "left-0" : "right-0"
                     }`}
@@ -223,7 +224,7 @@ export default function Projects() {
                   index % 2 === 0 ? "px-0 pr-10 py-0" : "px-0 pl-10 py-0"
                 }`}
               >
-                <BsCheckCircle size={50} color="#0084EC" />
+                <BsCheckCircle size={50} color="#0084EC" aria-hidden="true" />
                 <h4 className="text-white text-center font-bold mt-3">
                   {project.title}
                 </h4>
@@ -241,6 +242,7 @@ export default function Projects() {
               <div className="flex justify-center">
                 <img
                   src="/assets/images/icons/project-seperator.png"
+                  alt=""
                   className="w-20 h-20"
                 />
               </div>
@@ -268,19 +270,41 @@ export default function Projects() {
           <div className="flex justify-center pb-10">
             <img
               src="/assets/images/icons/hand-shake.png"
+              alt=""
               className="flex h-20"
             />
           </div>
           <div className="flex flex-wrap static max-w-[1024px] mx-auto bg-gradient-to-tr from-[#1E2434] to-white p-4">
-            <img src={collage[0]} className="w-1/2 h-auto pr-4 pb-4" />
-            <img src={collage[1]} className="w-1/2 h-auto pb-4" />
-            <img src={collage[2]} className="w-3/5 h-auto pr-4" />
+            <img
+              src={collage[0]}
+              alt=""
+              className="w-1/2 h-auto pr-4 pb-4"
+            />
+            <img
+              src={collage[1]}
+              alt=""
+              className="w-1/2 h-auto pb-4"
+            />
+            <img
+              src={collage[2]}
+              alt=""
+              className="w-3/5 h-auto pr-4"
+            />
             <div className="w-2/5 flex flex-col">
-              <img src={collage[3]} className="w-full h-1/2 pb-4" />
-              <img src={collage[4]} className="w-full h-1/2" />
+              <img
+                src={collage[3]}
+                alt=""
+                className="w-full h-1/2 pb-4"
+              />
+              <img
+                src={collage[4]}
+                alt=""
+                className="w-full h-1/2"
+              />
+              <img src={collage[4]} alt="" className="w-full h-1/2" />
             </div>
-          </div>
         </div>
+      </div>
       </div>
       <ScrollButton />
     </>

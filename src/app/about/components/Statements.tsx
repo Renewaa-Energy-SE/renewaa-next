@@ -1,11 +1,18 @@
 "use client";
-import { useState } from "react";
+import React, { useState } from "react";
 
 const Statements = () => {
   const [activeTab, setActiveTab] = useState("#tab-1");
 
   const handleTabClick = (tabId: string) => {
     setActiveTab(tabId);
+  };
+
+  const handleKeyDown = (e: React.KeyboardEvent, tabId: string) => {
+    if (e.key === "Enter" || e.key === " ") {
+      e.preventDefault();
+      setActiveTab(tabId);
+    }
   };
 
   return (
@@ -18,12 +25,18 @@ const Statements = () => {
       <div className="auto-container">
         <div className="tabs-box">
           <div className="tab-btn-box">
-            <ul className="tab-btns tab-buttons clearfix">
+            <ul className="tab-btns tab-buttons clearfix" role="tablist">
               <li
                 className={`tab-btn ${
                   activeTab === "#tab-1" ? "active-btn" : ""
                 }`}
                 onClick={() => handleTabClick("#tab-1")}
+                role="tab"
+                tabIndex={0}
+                aria-selected={activeTab === "#tab-1"}
+                aria-controls="tab-1"
+                id="tab-btn-1"
+                onKeyDown={(e) => handleKeyDown(e, "#tab-1")}
               >
                 <div className="icon-box">
                   <img src="/assets/images/icons/icon-40-blue.png" alt="" />
@@ -32,13 +45,19 @@ const Statements = () => {
                   <img src="/assets/images/icons/icon-41-blue.png" alt="" />
                 </div>
                 <span>Renewaa</span>
-                <h5 id="misson-statement">Mission Statement</h5>
+                <h5>Mission Statement</h5>
               </li>
               <li
                 className={`tab-btn ${
                   activeTab === "#tab-2" ? "active-btn" : ""
                 }`}
                 onClick={() => handleTabClick("#tab-2")}
+                role="tab"
+                tabIndex={0}
+                aria-selected={activeTab === "#tab-2"}
+                aria-controls="tab-2"
+                id="tab-btn-2"
+                onKeyDown={(e) => handleKeyDown(e, "#tab-2")}
               >
                 <div className="icon-box">
                   <img src="/assets/images/icons/icon-42-blue.png" alt="" />
@@ -47,13 +66,19 @@ const Statements = () => {
                   <img src="/assets/images/icons/icon-43-blue.png" alt="" />
                 </div>
                 <span>Renewaa</span>
-                <h5 id="visson-statement">Vision Statement</h5>
+                <h5>Vision Statement</h5>
               </li>
               <li
                 className={`tab-btn ${
                   activeTab === "#tab-3" ? "active-btn" : ""
                 }`}
                 onClick={() => handleTabClick("#tab-3")}
+                role="tab"
+                tabIndex={0}
+                aria-selected={activeTab === "#tab-3"}
+                aria-controls="tab-3"
+                id="tab-btn-3"
+                onKeyDown={(e) => handleKeyDown(e, "#tab-3")}
               >
                 <div className="icon-box">
                   <img src="/assets/images/icons/icon-44-blue.png" alt="" />
@@ -70,6 +95,8 @@ const Statements = () => {
             <div
               className={`tab ${activeTab === "#tab-1" ? "active-tab" : ""}`}
               id="tab-1"
+              role="tabpanel"
+              aria-labelledby="tab-btn-1"
             >
               <div className="content-inner">
                 <div className="row clearfix">
@@ -109,6 +136,8 @@ const Statements = () => {
             <div
               className={`tab ${activeTab === "#tab-2" ? "active-tab" : ""}`}
               id="tab-2"
+              role="tabpanel"
+              aria-labelledby="tab-btn-2"
             >
               <div className="content-inner">
                 <div className="row clearfix">
@@ -145,6 +174,8 @@ const Statements = () => {
             <div
               className={`tab ${activeTab === "#tab-3" ? "active-tab" : ""}`}
               id="tab-3"
+              role="tabpanel"
+              aria-labelledby="tab-btn-3"
             >
               <div className="content-inner">
                 <div className="row clearfix">

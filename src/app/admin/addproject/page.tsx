@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { Formik, Field, Form, FieldArray, FormikProps, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import { DropEvent, FileRejection, useDropzone } from "react-dropzone";
+import { FaCloudUploadAlt } from "react-icons/fa";
 import Sidebar from "../components/Sidebar";
 import {
   ref,
@@ -24,6 +25,7 @@ type FormValues = {
 type FileUploadProps = {
   setFieldValue: FormikProps<FormValues>["setFieldValue"];
   name: keyof FormValues;
+  multiple?: boolean;
 };
 
 const ProjectSchema = Yup.object({
@@ -136,6 +138,7 @@ const AddProject = () => {
                     Title
                   </label>
                   <Field
+                    id="title"
                     name="title"
                     id="title"
                     type="text"
@@ -152,10 +155,16 @@ const AddProject = () => {
                   {({ push, remove }) => (
                     <div className="flex flex-col space-y-1">
                       <label className="text-sm font-medium">Paragraphs</label>
+                      <ErrorMessage
+                        name="contents"
+                        component="div"
+                        className="text-red-500 text-sm mt-1"
+                      />
                       {values.contents.map((content, index) => (
+                        <div key={index} className="flex flex-col">
                         <div
                           key={index}
-                          className="flex items-center space-x-2"
+                          className="flex flex-col w-full space-y-1 mb-2"
                         >
                           <div className="flex-grow flex flex-col">
                             <Field
@@ -178,6 +187,27 @@ const AddProject = () => {
                           >
                             Remove
                           </button>
+                          <div className="flex items-center space-x-2">
+                            <Field
+                              name={`contents.${index}`}
+                              className="flex-grow p-2 border rounded-md h-[10vh]"
+                              as="textarea"
+                              aria-label={`Paragraph ${index + 1}`}
+                            />
+                            <button
+                              type="button"
+                              onClick={() => remove(index)}
+                              className="p-1 bg-red-500 text-white rounded-md"
+                              aria-label={`Remove paragraph ${index + 1}`}
+                            >
+                              Remove
+                            </button>
+                          </div>
+                          <ErrorMessage
+                            name={`contents.${index}`}
+                            component="div"
+                            className="text-red-500 text-sm mt-1"
+                          />
                         </div>
                       ))}
                       <button
@@ -187,6 +217,11 @@ const AddProject = () => {
                       >
                         Add Content
                       </button>
+                      <ErrorMessage
+                        name="contents"
+                        component="div"
+                        className="text-red-500 text-sm mt-1"
+                      />
                     </div>
                   )}
                 </FieldArray>
@@ -194,6 +229,11 @@ const AddProject = () => {
                 <div className="flex flex-col space-y-1">
                   <label className="text-sm font-medium">Main Image</label>
                   <FileUpload setFieldValue={setFieldValue} name="mainImage" />
+                  <FileUpload
+                    setFieldValue={setFieldValue}
+                    name="mainImage"
+                    multiple={false}
+                  />
                   <ErrorMessage
                     name="mainImage"
                     component="div"
@@ -262,24 +302,71 @@ const AddProject = () => {
 
 export default AddProject;
 
-const FileUpload: React.FC<FileUploadProps> = ({ setFieldValue, name }) => {
-  const onDrop = (acceptedFiles: File[] | File) => {
+const FileUpload: React.FC<FileUploadProps> = ({
+  setFieldValue,
+  name,
+  multiple = true,
+}) => {
+  const onDrop = (acceptedFiles: File[]) => {
     setFieldValue(name, acceptedFiles);
   };
 
-  const { getInputProps, open } = useDropzone({ onDrop, noClick: true });
+  const { getRootProps, getInputProps, isDragActive, open } = useDropzone({
+    onDrop,
+    noClick: true,
+  const { getRootProps, getInputProps, isDragActive } = useDropzone({
+    onDrop,
+    multiple,
+  });
 
   return (
-    <div>
+    <div
+      {...getRootProps()}
+      className={`border-2 border-dashed rounded-md p-6 flex flex-col items-center justify-center transition-colors ${
+        isDragActive
+          ? "border-blue-500 bg-blue-50"
+          : "border-gray-300 bg-gray-50 hover:bg-gray-100"
+      }`}
+    >
       <input {...getInputProps()} />
+      <p className="mb-3 text-sm text-gray-600 text-center">
+        {isDragActive
+          ? "Drop the files here..."
+          : "Drag & drop files here, or use the button"}
+      </p>
       <button
         type="button"
-        className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+        className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded text-sm transition-colors"
         onClick={open}
         aria-label="Browse files to upload"
       >
         Browse Files
       </button>
+      className={`border-2 border-dashed rounded-md p-6 text-center cursor-pointer transition-colors flex flex-col items-center justify-center space-y-2 outline-none focus:ring-2 focus:ring-blue-500 ${
+        isDragActive
+          ? "border-blue-500 bg-blue-50"
+          : "border-gray-300 hover:border-gray-400 hover:bg-gray-50"
+      }`}
+      role="button"
+      tabIndex={0}
+      aria-label="Upload file area"
+    >
+      <input {...getInputProps()} />
+      <FaCloudUploadAlt className="text-4xl text-gray-400" />
+      <p className="text-gray-600 font-medium">
+        {isDragActive ? (
+          "Drop the files here..."
+        ) : multiple ? (
+          "Drag & drop files here, or click to select files"
+        ) : (
+          "Drag & drop a file here, or click to select a file"
+        )}
+      </p>
+      <p className="text-xs text-gray-500">
+        {multiple
+          ? "Supports multiple files (JPG, PNG, WebP)"
+          : "Supports single file (JPG, PNG, WebP)"}
+      </p>
     </div>
   );
 };

@@ -11,3 +11,7 @@
 ✓ Ready in 1032ms
 ○ Compiling /admin/addproject ...
  GET /admin/addproject 200 in 6.3s (compile: 5.7s, proxy.ts: 100ms, render: 574ms)
+✓ Ready in 1182ms
+○ Compiling /admin/addproject ...
+ GET /admin/addproject 200 in 7.9s (compile: 6.9s, proxy.ts: 108ms, render: 909ms)
+ GET /admin/addproject 200 in 144ms (compile: 7ms, proxy.ts: 8ms, render: 129ms)

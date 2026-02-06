@@ -14,7 +14,12 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ menuVisible, toggleMenu }) => {
   // };
 
   return (
-    <div className={`${menuVisible ? "mobile-menu-visible" : ""}`}>
+    <div
+      id="mobile-menu"
+      className={`${menuVisible ? "mobile-menu-visible" : ""}`}
+      role="dialog"
+      aria-modal="true"
+    >
       <div className="mobile-menu ">
         <div className="menu-backdrop"></div>
         <button
