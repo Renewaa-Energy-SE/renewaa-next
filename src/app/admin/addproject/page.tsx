@@ -287,6 +287,9 @@ const FileUpload: React.FC<FileUploadProps> = ({
     setFieldValue(name, acceptedFiles);
   };
 
+  const { getRootProps, getInputProps, isDragActive, open } = useDropzone({
+    onDrop,
+    noClick: true,
   const { getRootProps, getInputProps, isDragActive } = useDropzone({
     onDrop,
     multiple,
@@ -295,6 +298,26 @@ const FileUpload: React.FC<FileUploadProps> = ({
   return (
     <div
       {...getRootProps()}
+      className={`border-2 border-dashed rounded-md p-6 flex flex-col items-center justify-center transition-colors ${
+        isDragActive
+          ? "border-blue-500 bg-blue-50"
+          : "border-gray-300 bg-gray-50 hover:bg-gray-100"
+      }`}
+    >
+      <input {...getInputProps()} />
+      <p className="mb-3 text-sm text-gray-600 text-center">
+        {isDragActive
+          ? "Drop the files here..."
+          : "Drag & drop files here, or use the button"}
+      </p>
+      <button
+        type="button"
+        className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded text-sm transition-colors"
+        onClick={open}
+        aria-label="Browse files to upload"
+      >
+        Browse Files
+      </button>
       className={`border-2 border-dashed rounded-md p-6 text-center cursor-pointer transition-colors flex flex-col items-center justify-center space-y-2 outline-none focus:ring-2 focus:ring-blue-500 ${
         isDragActive
           ? "border-blue-500 bg-blue-50"
