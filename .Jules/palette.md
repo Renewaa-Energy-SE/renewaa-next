@@ -17,6 +17,7 @@
 ## 2026-10-26 - Accessibility for Interactive Project Cards
 **Learning:** The project cards in `Projects.tsx` used icon-only links for "View Zoom" and "View Details" actions without any accessible labels, making them invisible to screen readers.
 **Action:** Always ensure icon-only interactive elements (links/buttons) have an `aria-label` describing the action (e.g., "View larger image", "View project details"), and apply `aria-hidden="true"` to the decorative icon inside.
+
 ## 2026-10-26 - Global Loader Interference with Testing
 **Learning:** The global `Loader` component (in `src/components/Loader.tsx`) creates an overlay that persists for 3 seconds, which can cause Playwright visibility assertions to fail or screenshots to capture the loader instead of the UI.
 **Action:** When writing integration tests or verification scripts, explicitly wait for the `.loader-wrap` element to be hidden (e.g., `page.locator(".loader-wrap").wait_for(state="hidden", timeout=10000)`) before performing assertions or taking screenshots.
@@ -24,3 +25,24 @@
 ## 2026-10-26 - Invalid Nesting of Interactive Elements
 **Learning:** The Admin Dashboard contained `<button>` elements nested inside `<Link>` components. This causes invalid HTML and hydration errors in React/Next.js, although the build process may not fail. This pattern degrades accessibility and predictability.
 **Action:** Refactor nested interactive elements by removing the inner `<button>` and applying the styling classes directly to the `<Link>` component.
+
+## 2026-10-27 - Accessibility in Hero/Banner Components
+**Learning:** The main banner used an icon-only button for the video link, which was completely invisible to screen readers. This is a high-impact area as it's the first thing users encounter.
+**Action:** Always ensure hero/banner call-to-action buttons (especially icon-only ones like play buttons) have descriptive `aria-label` attributes that include the context (e.g., "Watch video about [Topic]").
+## 2026-10-27 - Decorative Images & Force-Hiding Loaders
+**Learning:** Decorative images (lines, separators) often lack `alt` attributes entirely, which defaults to reading the filename in some screen readers.
+**Action:** Explicitly set `alt=""` for decorative images to remove them from the accessibility tree.
+## 2026-10-27 - Verification Script Strictness
+**Learning:** When using Playwright's `get_by_label("Text")`, it can match elements with `aria-label`s that contain that text (e.g., "Paragraph 1" matched both "Paragraph 1" textarea and "Remove paragraph 1" button).
+**Action:** Use `exact=True` or combine with `get_by_role()` (e.g., `page.get_by_role("textbox", name="Paragraph 1", exact=True)`) to disambiguate similar labels in verification scripts.
+
+## 2026-10-27 - Global Toast Configuration
+**Learning:** The project imported `react-toastify` in individual components but failed to include `ToastContainer` and its CSS in the global layout. This resulted in silent failures where toasts were triggered in code but never rendered.
+**Action:** Always verify that global providers/containers (like `ToastContainer`, `ThemeProvider`) are initialized in the root `layout.tsx` or `app.tsx` when adding them to a project.
+## 2026-10-27 - Fixing Pre-existing Syntax Errors for Verification
+**Learning:** The repository contained pre-existing syntax errors in `src/app/admin/addproject/page.tsx` and `src/app/projects/page.tsx` that prevented `pnpm build` from running.
+**Action:** When working on a task that requires build verification, it is sometimes necessary to fix unrelated syntax errors in the codebase to ensure the build process completes successfully.
+
+## 2026-10-28 - Mobile Menu Accessibility State
+**Learning:** The mobile menu implementation relied solely on CSS classes (`.mobile-menu-visible`) for visibility, without communicating state to assistive technologies. The toggle button lacked `aria-expanded` and `aria-controls`, and the menu itself lacked `role="dialog"`.
+**Action:** When implementing custom menus/dialogs, always pair the visual toggle mechanism with `aria-expanded` on the button and `role="dialog"`/`aria-modal="true"` on the container. Ensure the button points to the container via `aria-controls`.

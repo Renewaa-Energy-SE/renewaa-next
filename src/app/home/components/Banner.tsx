@@ -88,11 +88,12 @@ const Banner = () => {
                         href={item.videoLink}
                         className="lightbox-image video-btn"
                         data-caption=""
+                        aria-label={`Watch video about ${item.header1_part1} ${item.header1_part2}`}
                       >
-                        <i className="flaticon-play-button" />
-                        <span className="border-animation" />
-                        <span className="border-animation border-2" />
-                        <span className="border-animation border-3" />
+                        <i className="flaticon-play-button" aria-hidden="true" />
+                        <span className="border-animation" aria-hidden="true" />
+                        <span className="border-animation border-2" aria-hidden="true" />
+                        <span className="border-animation border-3" aria-hidden="true" />
                       </Link>
                     </div>
                     <h1>{item.header1_part1}</h1>
@@ -104,7 +105,7 @@ const Banner = () => {
                         className="theme-btn btn-one"
                         scroll={false}
                       >
-                        <i className="flaticon-right-arrow" />
+                        <i className="flaticon-right-arrow" aria-hidden="true" />
                         Read More
                       </Link>
                     </div>
