@@ -26,6 +26,13 @@
 **Learning:** The Admin Dashboard contained `<button>` elements nested inside `<Link>` components. This causes invalid HTML and hydration errors in React/Next.js, although the build process may not fail. This pattern degrades accessibility and predictability.
 **Action:** Refactor nested interactive elements by removing the inner `<button>` and applying the styling classes directly to the `<Link>` component.
 
+## 2026-10-27 - Silent Validation Failures in Admin Forms
+**Learning:** The "Add Project" admin form used Formik with Yup validation but lacked visual feedback (ErrorMessage components). This resulted in a "silent failure" state where clicking submit did nothing if fields were invalid, confusing users.
+**Action:** Always pair Formik validation schemas with visible `<ErrorMessage />` components for every validated field, ensuring users receive immediate, actionable feedback on why a submission failed.
+
+## 2026-10-27 - Accessibility in Dynamic Form Arrays
+**Learning:** Dynamic form fields (like the paragraphs in "Add Project") often lack unique visual labels. Without explicit `aria-label` attributes (e.g., "Paragraph 1"), screen reader users cannot distinguish between multiple identical inputs.
+**Action:** When rendering lists of inputs, always compute and assign a unique `aria-label` or `id` based on the index (e.g., `aria-label={\`Item ${index + 1}\`}`) to ensure each field is distinguishable.
 ## 2026-10-27 - Accessibility in Hero/Banner Components
 **Learning:** The main banner used an icon-only button for the video link, which was completely invisible to screen readers. This is a high-impact area as it's the first thing users encounter.
 **Action:** Always ensure hero/banner call-to-action buttons (especially icon-only ones like play buttons) have descriptive `aria-label` attributes that include the context (e.g., "Watch video about [Topic]").

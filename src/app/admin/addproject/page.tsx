@@ -166,6 +166,27 @@ const AddProject = () => {
                           key={index}
                           className="flex flex-col w-full space-y-1 mb-2"
                         >
+                          <div className="flex-grow flex flex-col">
+                            <Field
+                              name={`contents.${index}`}
+                              className="p-2 border rounded-md h-[10vh]"
+                              as="textarea"
+                              aria-label={`Paragraph ${index + 1}`}
+                            />
+                            <ErrorMessage
+                              name={`contents.${index}`}
+                              component="div"
+                              className="text-red-500 text-sm mt-1"
+                            />
+                          </div>
+                          <button
+                            type="button"
+                            onClick={() => remove(index)}
+                            className="p-1 bg-red-500 text-white rounded-md"
+                            aria-label={`Remove paragraph ${index + 1}`}
+                          >
+                            Remove
+                          </button>
                           <div className="flex items-center space-x-2">
                             <Field
                               name={`contents.${index}`}
